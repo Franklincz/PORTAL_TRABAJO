@@ -1,0 +1,81 @@
+﻿
+
+
+
+@model IEnumerable<Detpostuof>
+
+@{
+
+
+
+}
+
+
+<h1>Postulaciones</h1>
+
+
+<h2 id="txtNropostulaciones">Hay @Model.Count() postulaciones </h2>
+
+<form asp-action="verPostulantesOferta" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Filtro:<input type="text"  name="searchString" value="@ViewData["CurrentFilter"]"/>
+            <input type="submit" value="Buscar" class="btn btn-default" />
+            <a asp-action="verPostulantesOferta">Todos los registros</a>
+        </p>
+    </div>
+
+</form>
+
+
+<!--<-->@*table id="tbPostulaciones" class="table table-active">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>NOMBRE</th>
+            <th>APELLIDOS</th>`
+
+        </tr>
+    </thead>
+
+
+    <tbody>*@
+
+
+
+@*</tbody>
+    </table>*@
+
+@foreach (var item in Model)
+{
+
+
+    @*<tr>
+            <td>@item.CandidatoIdcandidatNavigation.Nombres</td>
+            <td>@item.CandidatoIdcandidatNavigation.Apellidos</td>
+            <td>@item.CandidatoIdcandidatNavigation.Telefono.</td>
+
+
+        </tr>*@
+
+    <div class="card">
+        <h5 class="card-header">@item.CandidatoIdcandidatNavigation.Nombres @item.CandidatoIdcandidatNavigation.Apellidos  </h5>
+
+
+        <div class="card-body">
+
+            <img class="card-img-overlay rounded-circle" id="imagenCandidato" asp-append-version="true" src="@("~/Images/"+ item.CandidatoIdcandidatNavigation.Foto)" />
+            <div class="align-content-sm-center" id="txtDestele">
+                <h5 class="card-title">@item.CandidatoIdcandidatNavigation.Descrpperfil</h5>
+                <p class="card-text">@item.CandidatoIdcandidatNavigation.Telefono</p>
+
+            </div>
+
+            <a href="#" class="btn btn-primary" @*style=""*@ id="irPerfil">Ir a  perfil</a>
+        </div>
+    </div>
+
+}
+
+
+

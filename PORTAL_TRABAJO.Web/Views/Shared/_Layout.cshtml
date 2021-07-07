@@ -1,0 +1,122 @@
+﻿
+@using PORTAL_TRABAJO.Web.Helper
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - PORTAL_TRABAJO.Web</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+
+    <!--Add-->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    @*<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>*@
+
+
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light  bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">PORTAL_TRABAJO.Web</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+
+
+               
+
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+
+
+
+                    <!---render logininfo-->
+                    <ul class="navbar-nav">
+                        <partial name="_LoginInfo" />
+                    </ul>
+                    <!---end render logininfo-->
+
+
+
+
+                    <ul class="navbar-nav flex-grow-1">
+
+
+
+                        @if (User.Identity.IsAuthenticated)
+                        {
+
+                            if (SessionHelper.GetValue(User, "Dato") == "ADMIEMPRESA")
+                            {
+
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Ofertalaboral" asp-action="MisOfertas">MIs avisos</a>
+                                </li>
+                                @*<a asp- controller="Ofertalaboral" asp-action="MisOfertas" class="btn btn-danger">VER INSCRITOS</a>*@
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="#" asp-action="#">Crear Aviso</a>
+                                </li>
+
+                            }
+                            else if (SessionHelper.GetValue(User, "Dato") == "CANDIDATO")
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Ofertalaboral" asp-action="GetAllOfertas">Ver ofertas</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Candidato" asp-action="verMisPostulaciones">Mis postulaciones</a>
+                                </li>
+                            }
+
+
+
+
+                        }
+
+
+
+
+                        @if (User.Identity.IsAuthenticated == false)
+                        {
+
+
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Candidatos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Empresa</a>
+                            </li>
+
+
+                        }
+
+
+
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2021 - PORTAL_TRABAJO.Web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

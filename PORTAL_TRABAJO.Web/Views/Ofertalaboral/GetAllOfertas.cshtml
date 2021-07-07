@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Ofertas Disponibles";
+}
+@model IEnumerable<Ofertalaboral>
+
+<div class="container">
+    <h3 class="display-4">Ofertas Disponibles</h3>
+    <div class="row">
+
+        @foreach (var oferta in Model)
+        {
+            
+            <div class="col-md-4">
+                <partial name="_ofertaThumbnail" model="@oferta" />
+            </div>
+        }
+
+    </div>
+</div>

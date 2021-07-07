@@ -1,0 +1,116 @@
+﻿@model PORTAL_TRABAJO.Web.ModelsView.AdmiEmpresaVM
+
+
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>LoginAdEmpresa</title>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Nombre de tu pagina</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <!--aqui  jquery-->
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+
+
+</head>
+<body>
+
+
+
+    <div class="container">
+        <h4 class="display-4">Login Empresa</h4>
+        <hr />
+
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="IniciarSesionAdmiEmpresa" asp-controller="Cuenta" id="form-IniciarSesionAdmi">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Correo" class="control-label"></label>
+                        <input asp-for="Correo" class="form-control" />
+                        <span asp-validation-for="Correo" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Contraseña" class="control-label"></label>
+                        <input asp-for="Contraseña" type="password" class="form-control" />
+                        <span asp-validation-for="Contraseña" class="text-danger"></span>
+                    </div>
+
+
+                  
+                    
+
+
+
+
+
+
+
+
+                    <div class="form-group">
+                        <input type="submit" value="Login" class="btn btn-primary" />
+                    </div>
+                </form>
+
+            </div>
+            <div class="col-md-8">
+
+                <img class="img-fluid" src="~/Images/Login-empresa.jpg" />
+            </div>
+        </div>
+        <div>
+            <a asp-action="">Back to List</a>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+
+
+
+
+    $(document).on('submit', '#form-IniciarSesionAdmi', function (e) {
+
+        e.preventDefault();
+        $.ajax({
+            beforeSend: function () {
+                $('#IniciarSesionAdmiEmpresa button[type=submit]').prop('disabled', true);
+            },
+            type: this.method,
+            url: this.action,
+            data: $(this).serialize(),//de forma seriaalizada
+            success: function (data) {
+                alert('Bienvenido a nuestra app !');
+                //para reenviar a
+
+                window.location = '/Home';
+
+            },
+            error: function (xhr, status) {
+                alert("USUARIO O PASSWORD NO VALIDA");
+            },
+            complete: function () {
+                $('#IniciarSesionAdmiEmpresa button[type=submit]').prop('disabled', false);
+            }
+
+
+        });
+
+
+    });
+</script>

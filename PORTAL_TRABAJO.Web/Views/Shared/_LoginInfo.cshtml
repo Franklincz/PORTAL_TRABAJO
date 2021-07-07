@@ -1,0 +1,53 @@
+﻿
+
+@using PORTAL_TRABAJO.Web.Helper
+
+@if (User.Identity.IsAuthenticated)
+{
+    @*<li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Hello @SessionHelper.GetName(User)
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" asp-action="Logout" asp-controller="Cuenta">Logout</a>
+                <a class="dropdown-item" asp-action="ChangePassword" asp-controller="Account">Change password</a>
+            </div>
+        </li>*@
+
+
+
+
+<div class="btn-group">
+    @*<button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    </button>*@
+    @*<img src="~/Images/user.png"  class="rounded-circle"  style="align-content:start"/>*@
+    <a class="nav-link dropdown-toggle text-dark" style="align-content:start" src="~/Images/user.png"  href="#"id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+        Hello @SessionHelper.GetName(User)
+    </a>
+    
+    
+    
+    <div class="dropdown-menu">
+        <a class="dropdown-item" asp-action="PerfilCandidato" asp-controller="Candidato">Perfil</a>
+
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" asp-action="Logout" asp-controller="Cuenta">Cerrar Sesion</a>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+}
+else
+{
+    <li class="nav-item">
+        <a class="btn btn-outline-primary" asp-controller="Cuenta" asp-action="LoginCandidato" asp-route-returnUrl="@Context.Request.Path">Login</a>
+        <a class="btn btn-primary" asp-controller="Candidato" asp-action="NewCandidato">Register</a>
+    </li>
+}
