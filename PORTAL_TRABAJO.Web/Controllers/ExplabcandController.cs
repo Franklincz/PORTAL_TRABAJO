@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using PORTAL_TRABAJO.Web.Helper;
 using PORTAL_TRABAJO.Web.Models;
 using PORTAL_TRABAJO.Web.Repository;
 using System;
@@ -33,23 +34,35 @@ namespace PORTAL_TRABAJO.Web.Controllers
         }
         public async Task<IActionResult> ListadoExpLab()
         {
-            var portalEmpleo4Context = _context.Explabcand.Include(e => e.Areatrabajo).Include(e => e.CandidatoIdcandidatNavigation).Include(e => e.Giroempresa);
-            return PartialView(await portalEmpleo4Context.ToListAsync());
+            //var portalEmpleo4Context = _context.Explabcand.Include(e => e.Areatrabajo).Include(e => e.CandidatoIdcandidatNavigation).Include(e => e.Giroempresa);
+           var miedxperiencia = _context.Explabcand.Include(e => e.Areatrabajo).Include(e => e.CandidatoIdcandidatNavigation).Include(e => e.Giroempresa).Where(x=>x.CandidatoIdcandidat== int.Parse(SessionHelper.GetNameIdentifier(User)));
+           
+            
+            
+            // return PartialView(await DBPortaldeEmpleoContext.ToListAsync());
+            return PartialView(await miedxperiencia.ToListAsync());
         }
         [HttpPost]
         public async Task<IActionResult> Index(int id,
            string NombreEmprEx, string Cargo,
            DateTime Inicio, DateTime Fin, string FuncionD, int Giro, int Area)
         {
+
+            int idCandidato = int.Parse(SessionHelper.GetNameIdentifier(User));
             var explabcand = new Explabcand()
             {
+
+
                 Empresaexp = NombreEmprEx,
                 Cargo = Cargo,
                 FechaInicio = Inicio,
                 FechaFin = Fin,
                 Descripfuncion = FuncionD,
                 GiroempresaId = Giro,
-                AreatrabajoId = Area
+                CandidatoIdcandidat = idCandidato,
+                AreatrabajoId = Area,
+             
+
 
 
             };

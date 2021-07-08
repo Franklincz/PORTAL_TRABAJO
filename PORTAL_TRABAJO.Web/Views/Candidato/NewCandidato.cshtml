@@ -126,6 +126,18 @@
 
 
                 </div>
+
+                <div class="col-md-4">
+
+                    <div class="custom-file">
+                        <input asp-for="fotoArchivo" class="custom-file-input" id="txtfoto" />
+                        <label class="custom-file-label" for="customFile">choose file</label>
+                    </div>
+
+                </div>
+
+
+
             </div>
             <!--end Add-->
 
@@ -207,6 +219,7 @@
 
 
                 formdata.append('file', $('#txtHojadevida')[0].files[0]);//agrego el documento cv
+                formdata.append('foto', $('#txtfoto')[0].files[0]);//file=nombre en como lo voy a revisar
                 formdata.append("Id", vIDCandidato);
                 formdata.append("Nombres", vNombres);
                 formdata.append("Apellidos", vApellidos);
@@ -228,7 +241,7 @@
                 data: formdata,
                 processData: false,
                 contentType: false,
-                success: function (exito) {
+                success: function(exito) {
                     if (exito) {
                         alert("Se registró correctamente")
                     } else {

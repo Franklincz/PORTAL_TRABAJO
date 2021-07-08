@@ -18,8 +18,8 @@ namespace PORTAL_TRABAJO.Web.Repository
         public async Task<List<Detpostuof>> postulacionesCandidato(int id)
         {
             var list = await _context.Detpostuof.Include(c=>c.Ofertalaboral.Empresa).Where(x=>x.CandidatoIdcandidat==id).ToListAsync();
-            //
-          //  var listapostulaciones = await _context.Detpostuof.Include(x => x.Ofertalaboral).Include("Empresa").Where(x => x.CandidatoIdcandidat == id).ToListAsync();
+            
+        
 
 
 

@@ -16,6 +16,7 @@ namespace PORTAL_TRABAJO.Web.Helper
             return r == null ? "" : r.Value;
 
         }
+
         public static string GetNameIdentifier(IPrincipal User)//GetNameIdentifier me devuelve el id , osea el identificador
         {
             var r = ((ClaimsIdentity)User.Identity).FindFirst(ClaimTypes.NameIdentifier);

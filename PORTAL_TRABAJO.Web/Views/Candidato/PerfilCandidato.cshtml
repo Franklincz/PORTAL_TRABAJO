@@ -4,358 +4,319 @@
     ViewData["Title"] = "NewIdioma";
 }
 
-<div class="row justify-content-center">
-    <button type="button" class="btn btn-outline-primary" id="btnAddCandidato">
-        <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
-            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
-        </svg>
-    </button>
 
-</div>
 
-<button type="button" class="btn btn-outline-primary" id="btnUpdateCandidato">
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
-        <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z" />
-    </svg>
-</button>
 
-<button type="button" class="btn btn-outline-primary" id="btnRemoveCandidato">
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
-        <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z" />
-    </svg>
-</button>
 
-<div class="container" style="border:1px solid #1582d1">
-    <div class="row justify-content-center">
-        <div>
-            <label>Mis datos</label>
-        </div>
+<div class="container bootstrap snippet">
+    <div class="row">
+        <div class="col-sm-10"><h1>Mi perfil</h1></div>
+        <div class="col-sm-2"><a href="/users" class="pull-right"><img title="profile image" class="img-circle img-responsive" src="http://www.gravatar.com/avatar/28fd20ccec6865e2d5f0e1f4446eb7bf?s=100"></a></div>
     </div>
-    <div class="row justify-content-center">
-        <img src="@("~/Images/"+ Model.Foto)" asp-append-version="true" class="rounded-circle" alt="" width="55" height="55" />
-    </div>
-
-    <div class="row justify-content-center">
-        <label id="lblNombreCandidato">@Model.Nombres</label>
-    </div>
-    <br />
-    <div class="row ">
-        <div class="col-md-3">
-            <label>@Model.Dni</label>
-
-        </div>
-        <div class="col-md-3">
-            <label>Nacionalidad</label>
-
-        </div>
-        <div class="col-md-3">
-            <label>@Model.Correo</label>
-
-        </div>
-        <div class="col-md-3">
-            <label>@Model.Telefono</label>
-
-        </div>
-    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <!--left col-->
 
 
-    <div class="row ">
-        <div class="col-md-3">
-            <p1>dni</p1>
-
-        </div>
-        <div class="col-md-3">
-            <p1>nacionalidad?</p1>
-
-        </div>
-        <div class="col-md-3">
-            <p1>Correo</p1>
-
-        </div>
-        <div class="col-md-3">
-            <p1>telefono</p1>
-
-        </div>
-    </div>
-</div>
+            <div class="text-center">
+                <img src="@Model.Foto" class="avatar img-circle img-thumbnail" alt="avatar">
+                <h6>Upload a different photo...</h6>
+                <input type="file" class="text-center center-block file-upload">
+            </div></hr><br>
 
 
+            <div class="panel panel-default">
+                <div class="panel-heading">Website <i class="fa fa-link fa-1x"></i></div>
+                <div class="panel-body"><a href="http://bootnipets.com">bootnipets.com</a></div>
+            </div>
 
-<br />
-<br />
-@*EXPERIENCIA LABORAL*@
-@*<div>
-        <button type="button" class="btn btn-outline-primary" id="btnAddExpLab" data-toggle="modal" data-target="#ModalExpLab">
-            <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
-                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
-            </svg>
-        </button>
-        <div class="modal fade" id="ModalExpLab" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Nombre de Empresa</label>
-                                <input type="text" class="form-control" id="txtNEmpresaExp" />
-                            </div>
-                            <div class="col-md-6">
-                                <label>Giro de la empresa</label>
-                                <input type="text" class="form-control" id="txtGiroEmprEx" />
-                            </div>
-                        </div>
-                        <br />
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Cargo</label>
-                                <input type="text" class="form-control" id="txtCargo" />
-                            </div>
-                            <div class="col-md-6">
-                                <label>Area</label>
-                                <input type="text" class="form-control" id="txtArea" />
-                            </div>
-                        </div>
-                        <br />
-                        <div class="row">
-                            <div class="col-md-4">
-                                <label>Estado</label>
-                            </div>
-                            <div class="btn-group btn-group-toggle col-md-6" data-toggle="buttons">
-                                <label class="btn btn-secondary active">
-                                    <input type="radio" name="options" id="option1" checked> Actualmente
-                                </label>
-                                <label class="btn btn-secondary">
-                                    <input type="radio" name="options" id="option2"> Concluido
-                                </label>
-                            </div>
-                        </div>
-                        <br />
-                        <div class="row">
-                            <div class="col-md-5">
-                                <label>Periodo Inicio</label>
-                                <input type="date" />
-                            </div>
-                            <div class="col-md-5">
-                                <label>Periodo Fin</label>
-                                <input type="date" />
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <label>Descripción de la función</label>
-                                <textarea class="container-fluid"></textarea>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                        <button type="button" class="btn btn-primary">Agregar</button>
-                    </div>
+
+            <ul class="list-group">
+                <li class="list-group-item text-muted">Extras <i class="fa fa-dashboard fa-1x"></i></li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong></strong></span> 125</li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong>Likes</strong></span> 13</li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong>Posts</strong></span> 37</li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong>Followers</strong></span> 78</li>
+            </ul>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">Social Media</div>
+                <div class="panel-body">
+                    <i class="fa fa-facebook fa-2x"></i> <i class="fa fa-github fa-2x"></i> <i class="fa fa-twitter fa-2x"></i> <i class="fa fa-pinterest fa-2x"></i> <i class="fa fa-google-plus fa-2x"></i>
                 </div>
             </div>
-        </div>
-    </div>*@
-<div class="container" style="border:1px solid #1582d1">
-    <div class="row justify-content-center">
-        <p1>Experiencia laboral</p1>
 
-    </div>
-</div>
-<br />
-<br />
+        </div><!--/col-3-->
+        <div class="col-sm-9">
 
-@*FORMACIÓN ACADEMICA*@
-@*<div>
-        <button type="button" class="btn btn-outline-primary" id="btnAddFormAcad" data-toggle="modal" data-target="#ModelFormacion">
-            <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
-                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
-            </svg>
-        </button>
-        <div class="modal fade" id="ModelFormacion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Nombre de la Institución</label>
-                                <input type="text" class="form-control" id="txtnombrecentroed" />
-                            </div>
-                            <div class="col-md-6">
-                                <label>Tipo de estudio</label>
-                                <input type="text" class="form-control" id="txttipoestudio" />
+
+
+            <div class="tab-content">
+                <div class="tab-pane active" id="home">
+                    <hr>
+                    <form class="form" action="##" method="post" id="registrationForm">
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+
+                                <h4 type="text" id="first_name">Nombres</h4>
+                                <label>@Model.Nombres</label>
                             </div>
                         </div>
-                        <br />
-                        <div class="row">
-                            <div class="col-md-4">
-                                <label>Estado</label>
-                            </div>
-                            <div class="btn-group btn-group-toggle col-md-6" data-toggle="buttons">
-                                <label class="btn btn-secondary active">
-                                    <input type="radio" name="options" id="option1" checked> En curso
-                                </label>
-                                <label class="btn btn-secondary">
-                                    <input type="radio" name="options" id="option2"> Graduado
-                                </label>
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+
+                                <h4 type="text" id="first_name">Apellidos</h4>
+                                <label>@Model.Apellidos</label>
                             </div>
                         </div>
-                        <br />
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Titulo/Carrera</label>
-                                <input type="text" class="form-control" id="txttitulocarrera" />
-                            </div>
-                            <div class="col-md-6">
-                                <label>Area de estudio</label>
-                                <input type="text" class="form-control" id="txtareaestudio" />
+
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <h4 type="text" id="first_name">Telefono</h4>
+                                <label>@Model.Telefono</label>
                             </div>
                         </div>
-                        <br />
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Fecha Inicio</label>
-                                <input type="date" class="form-control" id="datefechainicio" />
-                            </div>
-                            <div class="col-md-6">
-                                <label>Fecha Fin</label>
-                                <input type="date" class="form-control" id="datefechafin" />
+
+                        <div class="form-group">
+                            <div class="col-xs-6">
+                                <label for="mobile"><h4>Mobile</h4></label>
+                                <input type="text" class="form-control" name="mobile" id="mobile" placeholder="enter mobile number" title="enter your mobile number if any.">
                             </div>
                         </div>
-                        <br />
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>*@
-<div class="container" style="border:1px solid #1582d1">
-    <div class="row justify-content-center">
-        <p1>Formación académica</p1>
-    </div>
-</div>
-<br />
-<br />
+                        <div class="form-group">
 
-@*IDIOMAS*@
-<!--<div id="modalIdioma">
-    <button type="button" class="btn btn-outline-primary" id="btnAddCandidatoExp" data-toggle="modal" data-target="#ModelIdioma">
-        <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
-            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
-        </svg>
-    </button>
-    <div class="modal fade" id="ModelIdioma" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label>IDIOMA</label>-->
-@*<input type="text" class="form-control" id="txtidioma" />*@
-<!--<select asp-for="IdiomaId" class="form-control" asp-items="ViewBag.IdiomaId"></select>
-</div>
-<div class="col-md-6">
-    <label>NIVEL ORAL</label>-->
-@*<input type="text" class="form-control" id="txtniveloralidi" />*@
-<!--<select asp-for="NiveloralidiId" class="form-control" asp-items="ViewBag.NiveloralidiId"></select>
-    </div>
-</div>
-<br />
-<div class="row">
-    <div class="col-md-6">
-        <label>NIVEL ESCRITO</label>-->
-@*<input type="text" class="form-control" id="txtnivescrid" />*@
-<!--<select asp-for="NivescridId" class="form-control" asp-items="ViewBag.NivescridId"></select>
+                            <div class="col-xs-6">
+                                <label for="email"><h4>Email</h4></label>
+                                <input type="email" class="form-control" name="email" id="email" placeholder="you@email.com" title="enter your email.">
+                            </div>
                         </div>
-                    </div>
-                    <br />
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="email"><h4>Location</h4></label>
+                                <input type="email" class="form-control" id="location" placeholder="somewhere" title="enter a location">
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="password"><h4>Password</h4></label>
+                                <input type="password" class="form-control" name="password" id="password" placeholder="password" title="enter your password.">
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="password2"><h4>Verify</h4></label>
+                                <input type="password" class="form-control" name="password2" id="password2" placeholder="password2" title="enter your password2.">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-12">
+                                <br>
+                                <button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
+                                <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <hr>
+
+                </div><!--/tab-pane-->
+                <div class="tab-pane" id="messages">
+
+                    <h2></h2>
+
+                    <hr>
+                    <form class="form" action="##" method="post" id="registrationForm">
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="first_name"><h4>First name</h4></label>
+                                <input type="text" class="form-control" name="first_name" id="first_name" placeholder="first name" title="enter your first name if any.">
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="last_name"><h4>Last name</h4></label>
+                                <input type="text" class="form-control" name="last_name" id="last_name" placeholder="last name" title="enter your last name if any.">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="phone"><h4>Phone</h4></label>
+                                <input type="text" class="form-control" name="phone" id="phone" placeholder="enter phone" title="enter your phone number if any.">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-xs-6">
+                                <label for="mobile"><h4>Mobile</h4></label>
+                                <input type="text" class="form-control" name="mobile" id="mobile" placeholder="enter mobile number" title="enter your mobile number if any.">
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="email"><h4>Email</h4></label>
+                                <input type="email" class="form-control" name="email" id="email" placeholder="you@email.com" title="enter your email.">
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="email"><h4>Location</h4></label>
+                                <input type="email" class="form-control" id="location" placeholder="somewhere" title="enter a location">
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="password"><h4>Password</h4></label>
+                                <input type="password" class="form-control" name="password" id="password" placeholder="password" title="enter your password.">
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="password2"><h4>Verify</h4></label>
+                                <input type="password" class="form-control" name="password2" id="password2" placeholder="password2" title="enter your password2.">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-12">
+                                <br>
+                                <button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
+                                <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div><!--/tab-pane-->
+                <div class="tab-pane" id="settings">
+
+
+                    <hr>
+                    <form class="form" action="##" method="post" id="registrationForm">
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="first_name"><h4>First name</h4></label>
+                                <input type="text" class="form-control" name="first_name" id="first_name" placeholder="first name" title="enter your first name if any.">
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="last_name"><h4>Last name</h4></label>
+                                <input type="text" class="form-control" name="last_name" id="last_name" placeholder="last name" title="enter your last name if any.">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="phone"><h4>Phone</h4></label>
+                                <input type="text" class="form-control" name="phone" id="phone" placeholder="enter phone" title="enter your phone number if any.">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-xs-6">
+                                <label for="mobile"><h4>Mobile</h4></label>
+                                <input type="text" class="form-control" name="mobile" id="mobile" placeholder="enter mobile number" title="enter your mobile number if any.">
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="email"><h4>Email</h4></label>
+                                <input type="email" class="form-control" name="email" id="email" placeholder="you@email.com" title="enter your email.">
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="email"><h4>Location</h4></label>
+                                <input type="email" class="form-control" id="location" placeholder="somewhere" title="enter a location">
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="password"><h4>Password</h4></label>
+                                <input type="password" class="form-control" name="password" id="password" placeholder="password" title="enter your password.">
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="password2"><h4>Verify</h4></label>
+                                <input type="password" class="form-control" name="password2" id="password2" placeholder="password2" title="enter your password2.">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-12">
+                                <br>
+                                <button class="btn btn-lg btn-success pull-right" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
+                                <!--<button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>-->
+                            </div>
+                        </div>
+                    </form>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                    <button type="button" id="btnGuardarIdioma" class="btn btn-primary">Guardar </button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>-->
-<div class="containerIdioma" style="border:1px solid #1582d1">
-    <div class="row justify-content-center">
-        <p1>IDIOMAS</p1>
-    </div>
-    <div id="divIdioma">
 
-    </div>
+            </div><!--/tab-pane-->
+        </div><!--/tab-content-->
 
-</div>
-
-<br />
-<br />
-@*CONOCIMIENTOS Y HABILIDADES*@
-
-<button type="button" class="btn btn-outline-primary" id="btnAddCandidatoExp" data-toggle="modal" data-target="#ModalConHab">
-    <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
-        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
-    </svg>
-</button>
-<div class="modal fade" id="ModalConHab" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-md-6">
-                        <label>INGRESE CONOCIMIENTO</label>
-                        <input type="text" class="form-control" id="txthabconocimcand" />
-                    </div>
-
-                </div>
-                <br />
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" id="btnGuardarIdioma" class="btn btn-primary">Save changes</button>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="container" style="border:1px solid #1582d1">
-    <div class="row justify-content-center">
-        <p1>Conocimientos y habilidades</p1>
-    </div>
-</div>
+    </div><!--/col-9-->
+</div><!--/row-->
 
 
-<input type="hidden" id="hidIDIdioma" value="-1" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <script>
     $("#btnGuardarIdioma").click(function () {
         let vIDIdiomaC = $("#hidIDIdioma").val();

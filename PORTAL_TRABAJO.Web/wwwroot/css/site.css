@@ -74,12 +74,12 @@ body {
     background:none;
 }
 #txtJornada {
-   outline-color:chartreuse;
+   font-weight:bold;
    font-family:Arial, Helvetica, sans-serif;
-   color:chartreuse;
+   
 }
 .card .card-header {
-    background-color: Highlight;
+   
     text-align: center;
 
 }
@@ -108,4 +108,5 @@ body {
     height:200px;
     width:325px;
 }*/
+
 

@@ -48,17 +48,37 @@ namespace PORTAL_TRABAJO.Web.Repository
         {
             bool exito = true;
 
-            var json = JsonConvert.SerializeObject(explabcand);
-            var data = new StringContent(json, Encoding.UTF8, "application/json");
+            //var json = JsonConvert.SerializeObject(explabcand);
+            //var data = new StringContent(json, Encoding.UTF8, "application/json");
 
-            using var httpClient = new HttpClient();
-            using var response = await httpClient
-                .PostAsync("http://localhost:62992/api/Explabcand/PostExplabcand", data);
-            string apiResponse = await response.Content.ReadAsStringAsync();
-            var explabcands = JsonConvert.DeserializeObject<Explabcand>(apiResponse);
+            //using var httpClient = new HttpClient();
+            //using var response = await httpClient
+            //    .PostAsync("http://localhost:62992/api/Explabcand/PostExplabcand", data);
+            //string apiResponse = await response.Content.ReadAsStringAsync();
+            //var explabcands = JsonConvert.DeserializeObject<Explabcand>(apiResponse);
 
-            if (explabcands == null)
+            try
+            {
+
+
+                using var data = new DBPortaldeEmpleoContext();
+                data.Explabcand.Add(explabcand);
+                await data.SaveChangesAsync();
+                
+            }
+            catch (Exception)
+            {
                 exito = false;
+            }
+
+
+            //if (explabcands == null)
+            //     exito = false;
+
+
+
+
+
 
             return exito;
         }

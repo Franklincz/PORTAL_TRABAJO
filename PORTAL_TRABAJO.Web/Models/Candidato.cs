@@ -42,5 +42,11 @@ namespace PORTAL_TRABAJO.Web.Models
         public virtual ICollection<Idiomacandid> Idiomacandid { get; set; }
         [NotMapped]
         public IFormFile cvUrl { get; set; }
+
+
+        [NotMapped]
+        public IFormFile fotoArchivo { get; set; }
+
+
     }
 }

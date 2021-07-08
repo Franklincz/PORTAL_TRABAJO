@@ -15,6 +15,7 @@ namespace PORTAL_TRABAJO.Web.Models
         public DBPortaldeEmpleoContext(DbContextOptions<DBPortaldeEmpleoContext> options)
             : base(options)
         {
+
         }
 
         public virtual DbSet<Admiempresa> Admiempresa { get; set; }
@@ -43,7 +44,7 @@ namespace PORTAL_TRABAJO.Web.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+
                 optionsBuilder.UseSqlServer("Server=LAPTOP-OS742RGB;Database=DBPortaldeEmpleo;Trusted_Connection=true;MultipleActiveResultSets=true");
             }
         }
@@ -147,7 +148,7 @@ namespace PORTAL_TRABAJO.Web.Models
                     .HasColumnName("dni");
 
                 entity.Property(e => e.Dochojavida)
-                    .HasMaxLength(100)
+                    
                     .HasColumnName("dochojavida");
 
                 entity.Property(e => e.EstadocivilIdestciv).HasColumnName("estadocivil_idestciv");
@@ -190,6 +191,15 @@ namespace PORTAL_TRABAJO.Web.Models
                 entity.Property(e => e.CandidatoIdcandidat).HasColumnName("candidato_idcandidat");
 
                 entity.Property(e => e.OfertalaboralId).HasColumnName("ofertalaboral_id");
+                //ad two changes
+                entity.Property(e => e.Estado)
+                   .HasMaxLength(50)
+                   .HasColumnName("estado");
+
+                entity.Property(e => e.Detalles)
+                .HasColumnName("detalles");
+
+                //fin 
 
                 entity.HasOne(d => d.CandidatoIdcandidatNavigation)
                     .WithMany(p => p.Detpostuof)
@@ -514,26 +524,16 @@ namespace PORTAL_TRABAJO.Web.Models
 
                 entity.Property(e => e.Id).HasColumnName("id");
 
-
-                //            entity.HasKey(e => e.Idcandidat)
-                //.HasName("candidato_pk");
-
-                //            entity.ToTable("candidato");
-
-                //            entity.Property(e => e.Idcandidat).HasColumnName("idcandidat");
-
-
-
-
-
-
                 entity.Property(e => e.Descripcionpuesto)
                     .HasMaxLength(50)
                     .HasColumnName("descripcionpuesto");
-
+                //change
                 entity.Property(e => e.Detalleoferta)
-                    .HasMaxLength(100)
                     .HasColumnName("detalleoferta");
+
+
+                //entity.Property(e => e.Logoempresa).HasColumnName("logoempresa");
+
 
                 entity.Property(e => e.EmpresaId).HasColumnName("empresa_id");
 

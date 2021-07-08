@@ -87,3 +87,5 @@ C:\Users\User\source\repos\PORTAL_TRABAJO\PORTAL_TRABAJO.Web\obj\Debug\net5.0\Ra
 C:\Users\User\source\repos\PORTAL_TRABAJO\PORTAL_TRABAJO.Web\obj\Debug\net5.0\Razor\Views\Ofertalaboral\GetAllOfertas.cshtml.g.cs
 C:\Users\User\source\repos\PORTAL_TRABAJO\PORTAL_TRABAJO.Web\obj\Debug\net5.0\Razor\Views\Candidato\verMisPostulaciones.cshtml.g.cs
 C:\Users\User\source\repos\PORTAL_TRABAJO\PORTAL_TRABAJO.Web\obj\Debug\net5.0\PORTAL_TRABAJO.Web.csprojAssemblyReference.cache
+C:\Users\User\source\repos\PORTAL_TRABAJO\PORTAL_TRABAJO.Web\obj\Debug\net5.0\Razor\Views\Explabcand\Index.cshtml.g.cs
+C:\Users\User\source\repos\PORTAL_TRABAJO\PORTAL_TRABAJO.Web\obj\Debug\net5.0\Razor\Views\Explabcand\ListadoExpLab.cshtml.g.cs

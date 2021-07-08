@@ -79,21 +79,29 @@ namespace PORTAL_TRABAJO.Web.Controllers
 
 
         [HttpPost]   
-        public async Task<IActionResult> NewCandidato(IFormFile file , int Id ,string Nombres,
+        public async Task<IActionResult> NewCandidato(IFormFile file ,IFormFile foto, int Id ,string Nombres,
             string Apellidos , string Dni , DateTime FechaNacimiento , string Telefono , string Descripcion , 
             string Correo , string Contraseña, int Genero , int EstadoCivil)
         {
 
             
-            bool exito = true;
+            
             string nombreArchivo=null;
-            List<string> errors = new List<string>(); // added this just to return something
+            string nombreArchiFoto = null;
+            List<string> errors = new List<string>();
             var hash = HashHelper.Hash(Contraseña);
             if (file != null)
             {
                 string folder = "Images/pdf/";
                    nombreArchivo = await UploadImage(folder, file);
                
+
+            }
+            if (foto != null)
+            {
+                string folder = "Images/";
+                nombreArchiFoto = await UploadImage(folder, foto);
+
 
             }
             var candidato = new Candidato()
@@ -104,6 +112,7 @@ namespace PORTAL_TRABAJO.Web.Controllers
                 EstadocivilIdestciv = EstadoCivil,
                 Dni = Dni,
                 Dochojavida = nombreArchivo,
+                Foto = nombreArchiFoto,
                 Telefono = Telefono,
                 Correo = Correo,
                 GeneroIdgenero = Genero,
@@ -113,6 +122,7 @@ namespace PORTAL_TRABAJO.Web.Controllers
 
 
             };
+            bool exito = true;
             if (Id == -1)
                 exito = await CandidatoRepository.Insertar(candidato);
             else
@@ -146,6 +156,7 @@ namespace PORTAL_TRABAJO.Web.Controllers
         public async Task <IActionResult> verMisPostulaciones()
         {
 
+            //para recuperr el id =   var id = int.Parse(SessionHelper.GetNameIdentifier(User))
             var mispostulaciones = await _postulacionRepository.postulacionesCandidato(int.Parse(SessionHelper.GetNameIdentifier(User)));
 
             return View(mispostulaciones);
