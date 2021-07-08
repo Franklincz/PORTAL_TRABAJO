@@ -71,7 +71,7 @@ namespace PORTAL_TRABAJO.Web.Models
                     .HasColumnName("contraseña");
 
                 entity.Property(e => e.Correo)
-                    .HasMaxLength(100)
+                    .HasMaxLength(30)
                     .HasColumnName("correo");
 
                 entity.Property(e => e.Direccion)
@@ -218,7 +218,7 @@ namespace PORTAL_TRABAJO.Web.Models
 
                 entity.Property(e => e.Id).HasColumnName("id");
 
-                entity.Property(e => e.Descripcionempr).HasColumnName("descripcionempr");
+                entity.Property(e => e.Descripcionempr).HasMaxLength(400).HasColumnName("descripcionempr");
 
                 entity.Property(e => e.Email)
                     .HasMaxLength(30)
@@ -525,7 +525,7 @@ namespace PORTAL_TRABAJO.Web.Models
                 entity.Property(e => e.Id).HasColumnName("id");
 
                 entity.Property(e => e.Descripcionpuesto)
-                    .HasMaxLength(50)
+                    .HasMaxLength(400)
                     .HasColumnName("descripcionpuesto");
                 //change
                 entity.Property(e => e.Detalleoferta)
@@ -548,11 +548,11 @@ namespace PORTAL_TRABAJO.Web.Models
                 entity.Property(e => e.JornadaId).HasColumnName("jornada_id");
 
                 entity.Property(e => e.Perfilcandidato)
-                    .HasMaxLength(100)
+                    .HasMaxLength(300)
                     .HasColumnName("perfilcandidato");
 
                 entity.Property(e => e.Requisitos)
-                    .HasMaxLength(100)
+                    .HasMaxLength(300)
                     .HasColumnName("requisitos");
 
                 entity.Property(e => e.Salario)
@@ -560,7 +560,7 @@ namespace PORTAL_TRABAJO.Web.Models
                     .HasColumnName("salario");
 
                 entity.Property(e => e.Titulooferta)
-                    .HasMaxLength(50)
+                    .HasMaxLength(60)
                     .HasColumnName("titulooferta");
 
                 entity.HasOne(d => d.Empresa)

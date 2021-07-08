@@ -89,3 +89,10 @@ C:\Users\User\source\repos\PORTAL_TRABAJO\PORTAL_TRABAJO.Web\obj\Debug\net5.0\Ra
 C:\Users\User\source\repos\PORTAL_TRABAJO\PORTAL_TRABAJO.Web\obj\Debug\net5.0\PORTAL_TRABAJO.Web.csprojAssemblyReference.cache
 C:\Users\User\source\repos\PORTAL_TRABAJO\PORTAL_TRABAJO.Web\obj\Debug\net5.0\Razor\Views\Explabcand\Index.cshtml.g.cs
 C:\Users\User\source\repos\PORTAL_TRABAJO\PORTAL_TRABAJO.Web\obj\Debug\net5.0\Razor\Views\Explabcand\ListadoExpLab.cshtml.g.cs
+C:\Users\User\source\repos\PORTAL_TRABAJO\PORTAL_TRABAJO.Web\obj\Debug\net5.0\Razor\Views\Empresa\Index.cshtml.g.cs
+C:\Users\User\source\repos\PORTAL_TRABAJO\PORTAL_TRABAJO.Web\obj\Debug\net5.0\Razor\Views\Empresa\Registrar.cshtml.g.cs
+C:\Users\User\source\repos\PORTAL_TRABAJO\PORTAL_TRABAJO.Web\obj\Debug\net5.0\Razor\Views\ReporteE\Delete.cshtml.g.cs
+C:\Users\User\source\repos\PORTAL_TRABAJO\PORTAL_TRABAJO.Web\obj\Debug\net5.0\Razor\Views\ReporteE\Details.cshtml.g.cs
+C:\Users\User\source\repos\PORTAL_TRABAJO\PORTAL_TRABAJO.Web\obj\Debug\net5.0\Razor\Views\ReporteE\Edit.cshtml.g.cs
+C:\Users\User\source\repos\PORTAL_TRABAJO\PORTAL_TRABAJO.Web\obj\Debug\net5.0\Razor\Views\ReporteE\Index.cshtml.g.cs
+C:\Users\User\source\repos\PORTAL_TRABAJO\PORTAL_TRABAJO.Web\obj\Debug\net5.0\Razor\Views\DetPostuof\Postular.cshtml.g.cs

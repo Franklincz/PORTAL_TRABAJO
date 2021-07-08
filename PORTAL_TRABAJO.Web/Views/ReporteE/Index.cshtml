@@ -1,0 +1,108 @@
+﻿@model IEnumerable<PORTAL_TRABAJO.Web.Models.Empresa>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="text-primary"> Reporte de empresas</h1>
+
+<hr />
+
+
+
+<table id="tbReporte" class="table table-success table-bordered">
+
+
+
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Ruc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Razonsocial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descripcionempr)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Industria)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ubicacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefono)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Logoempresa)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ruc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Razonsocial)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descripcionempr)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Industria)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ubicacion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Telefono)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Logoempresa)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id"> Editar </a> |
+
+                    <a asp-action="Delete" asp-route-id="@item.Id">Borrar</a>
+
+
+                </td>
+            </tr>
+        }
+    </tbody>
+
+
+</table>
+
+
+
+<script>
+
+    loadTable();
+    function loadTable() {
+        let table = $("#tbReporte").DataTable({
+            lengthChange: false,
+            buttons: ['copy', 'excel', 'pdf', 'colvis', 'print']
+
+        });
+
+
+
+
+        table.buttons().container()
+            .insertBefore("#tbReporte_filter");
+    }
+
+
+</script>
