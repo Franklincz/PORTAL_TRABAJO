@@ -21,20 +21,78 @@
 
 
 <form method="post" action="/Empresa/Grabar" enctype="multipart/form-data">
+    <!---------forulario para la empresa-->
 
-    <div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>RUC</label>
+                    <input type="text" class="form-control" id="txtRuc" />
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Ubicacion</label>
+                    <input type="text" class="form-control" id="txtUbicacion" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="text" class="form-control" id="txtEmail" />
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>Industria</label>
+                    <input type="text" class="form-control" id="txtIndustria" />
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>Teléfono</label>
+                    <input type="text" class="form-control" id="txtTelefono" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Descripcion</label>
+                    <input type="text" class="form-control" id="txtDescripcion" />
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Razon Social</label>
+                    <input type="text" class="form-control" id="txtRazonSocial" />
+                </div>
+            </div>
+
+        </div>
+
+
+        <!---------forulario para el empleado-->
+
+
         <div class="container-fluid">
+            <h4>DATOS DE ADMINISTRADOR</h4>
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label>RUC</label>
-                        <input type="text" class="form-control" id="txtRuc" />
+                        <label>Nombres</label>
+                        <input type="text" class="form-control" id="txtNombres" />
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label>Ubicacion</label>
-                        <input type="text" class="form-control" id="txtUbicacion" />
+                        <label>Apellidos</label>
+                        <input type="text" class="form-control" id="txtApellidos" />
                     </div>
                 </div>
             </div>
@@ -42,39 +100,57 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="form-group">
-                        <label>Email</label>
-                        <input type="text" class="form-control" id="txtEmail" />
+                        <label>Correo</label>
+                        <input type="text" class="form-control" id="txtCorreo" />
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
-                        <label>Industria</label>
-                        <input type="text" class="form-control" id="txtIndustria" />
+                        <label>Contraseña</label>
+                        <input type="text" class="form-control" id="txtContraseña" />
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
                         <label>Teléfono</label>
-                        <input type="text" class="form-control" id="txtTelefono" />
+                        <input type="text" class="form-control" id="txtTelefonoAdmi" />
                     </div>
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-md-6">
+                @*<div class="col-md-6">
+            <div class="form-group">
+                <label>Descripcion</label>
+                <input type="text" class="form-control" id="txtDescripcion" />
+            </div>
+        </div>*@
+                @*<div class="col-md-6">
+            <div class="form-group">
+                <label>Razon Social</label>
+                <input type="text" class="form-control" id="txtRazonSocial" />
+            </div>
+        </div>*@
+
+                <div class="col-md-4">
                     <div class="form-group">
-                        <label>Descripcion</label>
-                        <input type="text" class="form-control" id="txtDescripcion" />
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label>Razon Social</label>
-                        <input type="text" class="form-control" id="txtRazonSocial" />
+                        <label>Direccion</label>
+                        <input type="text" class="form-control" id="txtDireccion" />
                     </div>
                 </div>
 
             </div>
+
+
+
+
+            <!---end formulrio de emplesdo-->
+
+
+
+
+
+
 
 
 
@@ -85,14 +161,21 @@
 
 
         <!--para agregar-->
-        <div class="col-md-2">
-            <button id="btnAgregarEmpresa"
-                    class="btn btn-success">
-                Agregar
-            </button>
-        </div>
+        @*<div class="col-md-2">
+                <button id="btnAgregarEmpresa"
+                        class="btn btn-primary">
+                    Agregar
+                </button>
+            </div>*@
 
-    </div>
+        <div class="row justify-content-center">
+            <button id="btnAgregarEmpresa" type="button" class="btn btn-success btn-lg">CREAR</button>
+        </div>
+        <div class="row">
+
+
+
+        </div>
 
 
 
@@ -111,7 +194,7 @@
 
     <input type="hidden" id="hidIDEmpresa" value="-1" />
 
-    <hr />
+    @*<hr />*@
 
   
 
@@ -168,8 +251,18 @@
             let vEmail = $("#txtEmail").val();
             let vIndustria = $("#txtIndustria").val();
             let vTelefono = $("#txtTelefono").val();
-            let vDescripcion = $("txtDescripcion").val();
-            let vRazonSocial = $("txtRazonSocial").val();
+            let vDescripcion = $("#txtDescripcion").val();
+            let vRazonSocial = $("#txtRazonSocial").val();
+
+            let vNombres = $("#txtNombres").val();
+            let vApellidos = $("#txtApellidos").val();
+            let vCorreoAdmi = $("#txtCorreo").val();
+            let vContraAdmi = $("#txtContraseña").val();
+            let vTelefAdmi = $("#txtTelefonoAdmi").val();
+            let vDirecAdmi = $("#txtDireccion").val();
+           
+
+
             $.ajax({
                 type: "POST",
                 url: "Grabar",
@@ -182,13 +275,29 @@
                     industria: vIndustria,
                     telefono: vTelefono,
                     descripcionempr: vDescripcion,
-                    razonsocial: vRazonSocial
+                    razonsocial: vRazonSocial,
+
+                    //paraa admi
+                    nombre: vNombres,
+                    apellidos: vApellidos,
+                    correo: vCorreoAdmi,
+                    contraseña: vContraAdmi,
+                    telefonoAdmi: vTelefAdmi,
+                    direccionAdmi:vDirecAdmi
+
+
+
+
+
+
+
+
                 },
                 success: function (exito) {
                     if (exito) {
                         swal("Se registró correctamente....")
                         /* CargarListadoEmpresa();*/
-                        $("#modalRegistroEmpresa").modal("toggle");
+                      ///  $("#modalRegistroEmpresa").modal("toggle");
                     } else {
                         swal("Ocurrió un error en la transacción...")
                     }

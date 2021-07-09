@@ -18,7 +18,7 @@ namespace PORTAL_TRABAJO.Web.Controllers
 {
     public class OfertalaboralController : Controller
     {
-       //in this controller not reference context
+
 
         private readonly IOfertaRepository _ofertaRepository ;
         private readonly DBPortaldeEmpleoContext _context;
@@ -37,8 +37,8 @@ namespace PORTAL_TRABAJO.Web.Controllers
             return _ofertaRepository.SearchOffer(offerTitle, companyName);
         }
 
-      
 
+        [Route("postulantes-details/{id:int:min(1)}", Name = "VerPostulantesOferta")]
         public async Task<IActionResult> verPostulantesOferta(int? id, string searchString /*int? pageSize, int? page */)//int? id
         {
 
@@ -56,17 +56,7 @@ namespace PORTAL_TRABAJO.Web.Controllers
             return View(listasPostulantes);
 
         }
-        //public async Task<IActionResult> MisOfertas()
-        //{
-
-
-        //    var idEmpresa = int.Parse(SessionHelper.GetValue(User, "ID_EMPRESA"));
-
-
-        //    var misOfertaspublicadas = await _ofertaRepository.listOfertPublicadas(idEmpresa);
-
-        //    return View(  misOfertaspublicadas);
-        //}
+      
 
         public async Task<IActionResult> GetAllOfertas()
         {
@@ -81,7 +71,7 @@ namespace PORTAL_TRABAJO.Web.Controllers
 
 
         //add
-        public IActionResult Index()
+        public IActionResult Principal()
         {
 
             ViewData["EstadocivilIdestciv"] = new SelectList(_context.Jornada, "Id", "Descripcion");

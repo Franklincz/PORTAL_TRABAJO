@@ -95,7 +95,6 @@ C:\Users\User\source\repos\PORTAL_TRABAJO\PORTAL_TRABAJO.Web\obj\Debug\net5.0\Ra
 C:\Users\User\source\repos\PORTAL_TRABAJO\PORTAL_TRABAJO.Web\obj\Debug\net5.0\Razor\Views\ReporteE\Edit.cshtml.g.cs
 C:\Users\User\source\repos\PORTAL_TRABAJO\PORTAL_TRABAJO.Web\obj\Debug\net5.0\Razor\Views\ReporteE\Index.cshtml.g.cs
 C:\Users\User\source\repos\PORTAL_TRABAJO\PORTAL_TRABAJO.Web\obj\Debug\net5.0\Razor\Views\DetPostuof\Postular.cshtml.g.cs
-C:\Users\User\source\repos\PORTAL_TRABAJO\PORTAL_TRABAJO.Web\obj\Debug\net5.0\Razor\Views\Ofertalaboral\Index.cshtml.g.cs
 C:\Users\User\source\repos\PORTAL_TRABAJO\PORTAL_TRABAJO.Web\obj\Debug\net5.0\Razor\Views\Formaccand\Index.cshtml.g.cs
 C:\Users\User\source\repos\PORTAL_TRABAJO\PORTAL_TRABAJO.Web\obj\Debug\net5.0\Razor\Views\Formaccand\ListadoFormAcad.cshtml.g.cs
 C:\Users\User\source\repos\PORTAL_TRABAJO\PORTAL_TRABAJO.Web\obj\Debug\net5.0\Razor\Views\Idiomacandid\IndexIdioma.cshtml.g.cs
@@ -103,3 +102,4 @@ C:\Users\User\source\repos\PORTAL_TRABAJO\PORTAL_TRABAJO.Web\obj\Debug\net5.0\Ra
 C:\Users\User\source\repos\PORTAL_TRABAJO\PORTAL_TRABAJO.Web\obj\Debug\net5.0\Razor\Views\Empresa\MisOfertas.cshtml.g.cs
 C:\Users\User\source\repos\PORTAL_TRABAJO\PORTAL_TRABAJO.Web\bin\Debug\net5.0\libman.json
 C:\Users\User\source\repos\PORTAL_TRABAJO\PORTAL_TRABAJO.Web\obj\Debug\net5.0\Razor\Views\Ofertalaboral\MisOfertas.cshtml.g.cs
+C:\Users\User\source\repos\PORTAL_TRABAJO\PORTAL_TRABAJO.Web\obj\Debug\net5.0\Razor\Views\Ofertalaboral\Principal.cshtml.g.cs

@@ -37,23 +37,94 @@ namespace PORTAL_TRABAJO.Web.Repository
         }
 
 
-        public static async Task<bool> Insertar(Empresa empresa)
+        public static async Task<bool> Insertar(Empresa empresa,Admiempresa admiempresa)
         {
+            //bool exito = true;
+
+            //var json = JsonConvert.SerializeObject(empresa);
+            //var data = new StringContent(json, Encoding.UTF8, "application/json");
+
+            //using var httpClient = new HttpClient();
+            //using var response = await httpClient
+            //    .PostAsync("http://localhost:41565/api/Empresa/RegistrarEmpresa", data);
+            //string apiResponse = await response.Content.ReadAsStringAsync();
+            //var customers = JsonConvert.DeserializeObject<Empresa>(apiResponse);
+            //if (customers == null)
+            //    exito = false;
+           
+            //return exito;
+
+
+
+
             bool exito = true;
 
-            var json = JsonConvert.SerializeObject(empresa);
-            var data = new StringContent(json, Encoding.UTF8, "application/json");
+            try
+            {
 
-            using var httpClient = new HttpClient();
-            using var response = await httpClient
-                .PostAsync("http://localhost:41565/api/Empresa/RegistrarEmpresa", data);
-            string apiResponse = await response.Content.ReadAsStringAsync();
-            var customers = JsonConvert.DeserializeObject<Empresa>(apiResponse);
-            if (customers == null)
+
+                using var data = new DBPortaldeEmpleoContext();
+                data.Empresa.Add(empresa);
+               
+                await data.SaveChangesAsync();
+
+
+                
+            }
+            catch (Exception)
+            {
                 exito = false;
-           
+            }
+            var id = empresa.Id;
+
+            using var data2 = new DBPortaldeEmpleoContext();
+
+            admiempresa.EmpresaId =id;
+            data2.Admiempresa.Add(admiempresa);
+
+            await data2.SaveChangesAsync();
+            admiempresa.SalAdmiEmpresa = "";
             return exito;
+
+
         }
+
+
+
+
+
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         public static async Task<bool> Actualizar(Empresa empresa)

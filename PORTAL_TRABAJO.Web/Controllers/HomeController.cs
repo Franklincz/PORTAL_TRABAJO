@@ -26,17 +26,12 @@ namespace PORTAL_TRABAJO.Web.Controllers
         {
 
 
-            //if (SessionHelper.GetValue(User, "Dato") == "ADMIEMPRESA")
-            //{
-
-            //    return RedirectToAction("MisOfertas", "Empresa");
-            //}
-            //
+        
 
 
             if (SessionHelper.GetValue(User, "Dato") == "ADMIEMPRESA")
             {
-                return RedirectToAction("MisOfertas", "Empresa");
+                return RedirectToAction("Principal", "Ofertalaboral");
                
             }
             if (SessionHelper.GetValue(User, "Dato") == "CANDIDATO")

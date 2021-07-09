@@ -50,8 +50,12 @@ namespace PORTAL_TRABAJO.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> Grabar(int idEmpresa,
             string ruc, string ubicacion, string email, string industria,
-            string telefono, string descripcionempr, string razonsocial)
+            string telefono, string descripcionempr, string razonsocial,string  nombre,string apellidos,string correo,string contraseña,string telefonoAdmi,string direccionAdmi)
         {
+
+
+
+
             var empresa = new Empresa()
             {
                 Ruc = ruc,
@@ -63,29 +67,45 @@ namespace PORTAL_TRABAJO.Web.Controllers
                 Razonsocial = razonsocial
             };
 
+            var hash = HashHelper.Hash(contraseña);//hasheo paass adminEmpresa
 
 
 
-        //idEmpresa: vIDEmpresa,
-        //            ruc: vRuc,
-        //            ubicacion: vUbicacion,
-        //            email: vEmail,
-        //            industria: vIndustria,
-        //            telefono: vTelefono,
-        //            descripcionempr: vDescripcion,
-        //            razonsocial: vRazonSocial
+
+            var admi = new Admiempresa()
+            {
+                Nombre = nombre,
+               Apellidos = apellidos,
+               Correo = correo,
+                Direccion   =direccionAdmi,
+                Contraseña = hash.Password,
+                Telefono = telefonoAdmi,
+               SalAdmiEmpresa=hash.Salt
 
 
 
+
+            };
 
             bool exito = true;
             if (idEmpresa == -1)
-                exito = await EmpresaRepository.Insertar(empresa);
+            {
+                exito = await EmpresaRepository.Insertar(empresa ,admi);
+              
+             
+            }
+
+
+
             else
             {
                 empresa.Id = idEmpresa;
                 exito = await EmpresaRepository.Actualizar(empresa);
             }
+
+
+           
+
             return Json(exito);
         }
 
