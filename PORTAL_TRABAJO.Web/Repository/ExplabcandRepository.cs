@@ -21,7 +21,7 @@ namespace PORTAL_TRABAJO.Web.Repository
 
             using var httpClient = new HttpClient();
             using var response = await httpClient
-                .GetAsync("http://localhost:62992/api/Explabcand/GetExplabcand");
+                .GetAsync("http://localhost:41565/api/Explabcand/GetExplabcand");
             string apiResponse = await response.Content.ReadAsStringAsync();
             var explabcands = JsonConvert.DeserializeObject<IEnumerable<Explabcand>>(apiResponse);
 
@@ -35,7 +35,7 @@ namespace PORTAL_TRABAJO.Web.Repository
         {
             using var httpClient = new HttpClient();
             using var response = await httpClient
-                .GetAsync("http://localhost:62992/api/Explabcand/GetExplabcandById/" + id);
+                .GetAsync("http://localhost:41565/api/Explabcand/GetExplabcandById/" + id);
             string apiResponse = await response.Content.ReadAsStringAsync();
             var explabcands = JsonConvert.DeserializeObject<Explabcand>(apiResponse);
 
@@ -53,7 +53,7 @@ namespace PORTAL_TRABAJO.Web.Repository
 
             //using var httpClient = new HttpClient();
             //using var response = await httpClient
-            //    .PostAsync("http://localhost:62992/api/Explabcand/PostExplabcand", data);
+            //    .PostAsync("http://localhost:41565/api/Explabcand/PostExplabcand", data);
             //string apiResponse = await response.Content.ReadAsStringAsync();
             //var explabcands = JsonConvert.DeserializeObject<Explabcand>(apiResponse);
 
@@ -93,7 +93,7 @@ namespace PORTAL_TRABAJO.Web.Repository
 
                 using var httpClient = new HttpClient();
                 using var response = await httpClient
-                    .GetAsync("http://localhost:62992/api/Explabcand/GetExplabcandById/" + explabcand.Idexplabcand);
+                    .GetAsync("http://localhost:41565/api/Explabcand/GetExplabcandById/" + explabcand.Idexplabcand);
                 string apiResponse = await response.Content.ReadAsStringAsync();
                 var customerByID = JsonConvert.DeserializeObject<Explabcand>(apiResponse);
 
@@ -103,7 +103,7 @@ namespace PORTAL_TRABAJO.Web.Repository
                 var data = new StringContent(json, Encoding.UTF8, "application/json");
 
                 using var responsePut = await httpClient
-                    .PutAsync("http://localhost:62992/api/Explabcand/PutExplabcand/", data);
+                    .PutAsync("http://localhost:41565/api/Explabcand/PutExplabcand/", data);
 
                 string apiResponsePut = await responsePut.Content.ReadAsStringAsync();
                 var customerResponse = JsonConvert.DeserializeObject<Explabcand>(apiResponsePut);
@@ -132,7 +132,7 @@ namespace PORTAL_TRABAJO.Web.Repository
 
 
                 using var responseDelete = await httpClient
-                  .DeleteAsync("http://localhost:62992/api/Explabcand/DeleteExplabcand/" + id);
+                  .DeleteAsync("http://localhost:41565/api/Explabcand/DeleteExplabcand/" + id);
                 string apiResponseDelete = await responseDelete.Content.ReadAsStringAsync();
                 if ((int)responseDelete.StatusCode == 404)
                     exito = false;

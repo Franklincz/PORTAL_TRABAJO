@@ -1,19 +1,14 @@
 ﻿<div class="alert alert-primary" role="alert">
     <div class="row">
         <div class="col-md-4">
-            <h3>Mantenimiento de Empresas</h3>
+            <h3>RESGISTRO DE EMPRESA</h3>
         </div>
-        <div class="col-md-2">
-            <button id="btnAgregarEmpresa"
-                    class="btn btn-success">
-                Agregar
-            </button>
-        </div>
+        
     </div>
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="modalRegistroEmpresa" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+@*<div class="modal fade" id="modalRegistroEmpresa" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -21,174 +16,202 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-            </div>
-            <div class="modal-body">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>RUC</label>
-                                <input type="text" class="form-control" id="txtRuc" />
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Ubicacion</label>
-                                <input type="text" class="form-control" id="txtUbicacion" />
-                            </div>
-                        </div>
+            </div>*@
+
+
+
+<form method="post" action="/Empresa/Grabar" enctype="multipart/form-data">
+
+    <div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>RUC</label>
+                        <input type="text" class="form-control" id="txtRuc" />
                     </div>
-
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label>Email</label>
-                                <input type="text" class="form-control" id="txtEmail" />
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label>Industria</label>
-                                <input type="text" class="form-control" id="txtIndustria" />
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label>Teléfono</label>
-                                <input type="text" class="form-control" id="txtTelefono" />
-                            </div>
-                        </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Ubicacion</label>
+                        <input type="text" class="form-control" id="txtUbicacion" />
                     </div>
-
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Descripcion</label>
-                                <input type="text" class="form-control" id="txtDescripcion" />
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Razon Social</label>
-                                <input type="text" class="form-control" id="txtRazonSocial" />
-                            </div>
-                        </div>
-
-                    </div>
-
-
-
-
                 </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary" id="btnGuardarEmpresa">Guardar</button>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="text" class="form-control" id="txtEmail" />
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Industria</label>
+                        <input type="text" class="form-control" id="txtIndustria" />
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Teléfono</label>
+                        <input type="text" class="form-control" id="txtTelefono" />
+                    </div>
+                </div>
             </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Descripcion</label>
+                        <input type="text" class="form-control" id="txtDescripcion" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Razon Social</label>
+                        <input type="text" class="form-control" id="txtRazonSocial" />
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
         </div>
+
+
+
+
+        <!--para agregar-->
+        <div class="col-md-2">
+            <button id="btnAgregarEmpresa"
+                    class="btn btn-success">
+                Agregar
+            </button>
+        </div>
+
     </div>
-</div>
-
-<input type="hidden" id="hidIDEmpresa" value="-1" />
-
-<hr />
-
-<div id="divListadoEmpresas">
 
 
-</div>
+
+</form>
 
 
-<script>
-    $("#divListadoEmpresas").on('click', '.btnEditarEmpresa', function () {
-        let vIdEmpresa = $(this).attr('data-id');
-        $("#hidIDEmpresa").val(vIdEmpresa);
-        let modalRegistro = $("#modalRegistroEmpresa");
-        $.ajax({
-            type: "GET",
-            url: "Empresa/Obtener",
-            cache: false,
-            data: { idEmpresa: vIdEmpresa },
-            success: function (objEmpresa) {
-                $("#txtRuc").val(objEmpresa.ruc);
-                $("#txtUbicacion").val(objEmpresa.ubicacion);
-                $("#txtEmail").val(objEmpresa.email);
-                $("#txtIndustria").val(objEmpresa.industria);
-                $("#txtTelefono").val(objEmpresa.telefono);
-                $("#txtDescripcion").val(objEmpresa.descripcionempr);
-                $("#txtRazonSocial").val(objEmpresa.razonsocial);
-                modalRegistro.modal();
-                modalRegistro.find("#titulo".html("Editar Empresa"));
-            }
 
 
-        });
-    });
-    $("#divListadoEmpresas").on('click', '.btnEliminarEmpresa', function () {
-        let vIdEmpresa = $(this).attr('data-id');
-        if (confirm("¿Está seguro de eliminar al Empresa?")) {
+    @*<div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-primary" id="btnGuardarEmpresa">Guardar</button>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+
+    <input type="hidden" id="hidIDEmpresa" value="-1" />
+
+    <hr />
+
+  
+
+
+    <script>
+        //$("#divListadoEmpresas").on('click', '.btnEditarEmpresa', function () {
+        //    let vIdEmpresa = $(this).attr('data-id');
+        //    $("#hidIDEmpresa").val(vIdEmpresa);
+        //    let modalRegistro = $("#modalRegistroEmpresa");
+        //    $.ajax({
+        //        type: "GET",
+        //        url: "Empresa/Obtener",
+        //        cache: false,
+        //        data: { idEmpresa: vIdEmpresa },
+        //        success: function (objEmpresa) {
+        //            $("#txtRuc").val(objEmpresa.ruc);
+        //            $("#txtUbicacion").val(objEmpresa.ubicacion);
+        //            $("#txtEmail").val(objEmpresa.email);
+        //            $("#txtIndustria").val(objEmpresa.industria);
+        //            $("#txtTelefono").val(objEmpresa.telefono);
+        //            $("#txtDescripcion").val(objEmpresa.descripcionempr);
+        //            $("#txtRazonSocial").val(objEmpresa.razonsocial);
+        //            modalRegistro.modal();
+        //            modalRegistro.find("#titulo".html("Editar Empresa"));
+        //        }
+
+
+        //    });
+        //});
+        //$("#divListadoEmpresas").on('click', '.btnEliminarEmpresa', function () {
+        //    let vIdEmpresa = $(this).attr('data-id');
+        //    if (confirm("¿Está seguro de eliminar al Empresa?")) {
+        //        $.ajax({
+        //            type: "POST",
+        //            url: "Empresa/Eliminar",
+        //            cache: false,
+        //            data: { idEmpresa: vIdEmpresa },
+        //            success: function (exito) {
+        //                if (exito) {
+        //                    alert("Exito"); 
+        //                } else {
+        //                    alert("Ocurrió un error al eliminar el Empresa....");
+        //                }
+        //            }
+        //        });
+        //    }
+        //});
+
+        $("#btnAgregarEmpresa").click(function () {
+            let vIDEmpresa = $("#hidIDEmpresa").val();
+            let vRuc = $("#txtRuc").val();
+            let vUbicacion = $("#txtUbicacion").val();
+            //let vDireccion = $("#txtDireccion").val();
+            let vEmail = $("#txtEmail").val();
+            let vIndustria = $("#txtIndustria").val();
+            let vTelefono = $("#txtTelefono").val();
+            let vDescripcion = $("txtDescripcion").val();
+            let vRazonSocial = $("txtRazonSocial").val();
             $.ajax({
                 type: "POST",
-                url: "Empresa/Eliminar",
+                url: "Grabar",
                 cache: false,
-                data: { idEmpresa: vIdEmpresa },
+                data: {
+                    idEmpresa: vIDEmpresa,
+                    ruc: vRuc,
+                    ubicacion: vUbicacion,
+                    email: vEmail,
+                    industria: vIndustria,
+                    telefono: vTelefono,
+                    descripcionempr: vDescripcion,
+                    razonsocial: vRazonSocial
+                },
                 success: function (exito) {
                     if (exito) {
-                        CargarListadoEmpresa();
+                        swal("Se registró correctamente....")
+                        /* CargarListadoEmpresa();*/
+                        $("#modalRegistroEmpresa").modal("toggle");
                     } else {
-                        alert("Ocurrió un error al eliminar el Empresa....");
+                        swal("Ocurrió un error en la transacción...")
                     }
                 }
             });
-        }
-    });
-    $("#btnGuardarEmpresa").click(function () {
-        let vIDEmpresa = $("#hidIDEmpresa").val();
-        let vRuc = $("#txtRuc").val();
-        let vUbicacion = $("#txtUbicacion").val();
-        //let vDireccion = $("#txtDireccion").val();
-        let vEmail = $("#txtEmail").val();
-        let vIndustria = $("#txtIndustria").val();
-        let vTelefono = $("#txtTelefono").val();
-        let vDescripcion = $("txtDescripcion").val();
-        let vRazonSocial = $("txtRazonSocial").val();
-        $.ajax({
-            type: "POST",
-            url: "Empresa/Grabar",
-            cache: false,
-            data: {
-                idEmpresa: vIDEmpresa,
-                ruc: vRuc,
-                ubicacion: vUbicacion,
-                email: vEmail,
-                industria: vIndustria,
-                telefono: vTelefono,
-                descripcionempr: vDescripcion,
-                razonsocial: vRazonSocial
-            },
-            success: function (exito) {
-                if (exito) {
-                    swal("Se registró correctamente....")
-                    CargarListadoEmpresa();
-                    $("#modalRegistroEmpresa").modal("toggle");
-                } else {
-                    swal("Ocurrió un error en la transacción...")
-                }
-            }
         });
-    });
-    CargarListadoEmpresa();
-    function CargarListadoEmpresa() {
-        $.ajax({
-            type: "GET",
-            url: "Empresa/Listado",
-            cache: false,
-            success: function (dataHtml) {
-                $("#divListadoEmpresas").html(dataHtml);
-            }
-        });
-    }
-    $("#btnAgregarEmpresa").click(function () {
-        $("#modalRegistroEmpresa").modal();
-    });
-</script>
+
+
+
+
+
+        //CargarListadoEmpresa();
+        //function CargarListadoEmpresa() {
+        //    $.ajax({
+        //        type: "GET",
+        //        url: "Empresa/Listado",
+        //        cache: false,
+        //        success: function (dataHtml) {
+        //            $("#divListadoEmpresas").html(dataHtml);
+        //        }
+        //    });
+        //}
+        //$("#btnAgregarEmpresa").click(function () {
+        //    $("#modalRegistroEmpresa").modal();
+        //});
+    </script>

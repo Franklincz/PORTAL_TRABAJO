@@ -50,7 +50,7 @@ namespace PORTAL_TRABAJO.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> Grabar(int idEmpresa,
             string ruc, string ubicacion, string email, string industria,
-            string telefono, string descripcion, string razonSocial)
+            string telefono, string descripcionempr, string razonsocial)
         {
             var empresa = new Empresa()
             {
@@ -59,9 +59,24 @@ namespace PORTAL_TRABAJO.Web.Controllers
                 Email = email,
                 Industria = industria,
                 Telefono = telefono,
-                Descripcionempr = descripcion,
-                Razonsocial = razonSocial
+                Descripcionempr = descripcionempr,
+                Razonsocial = razonsocial
             };
+
+
+
+
+        //idEmpresa: vIDEmpresa,
+        //            ruc: vRuc,
+        //            ubicacion: vUbicacion,
+        //            email: vEmail,
+        //            industria: vIndustria,
+        //            telefono: vTelefono,
+        //            descripcionempr: vDescripcion,
+        //            razonsocial: vRazonSocial
+
+
+
 
             bool exito = true;
             if (idEmpresa == -1)
@@ -82,7 +97,7 @@ namespace PORTAL_TRABAJO.Web.Controllers
         {
 
 
-            int idEmpresa = int.Parse(SessionHelper.GetValue(User, "ID_EMPRESA"));
+            int idEmpresa = int.Parse(SessionHelper.GetValue(User, "ID_EMPRESA"));//obtener el id de la persona logueada
 
 
             var misOfertaspublicadas = await _ofertaRepository.listOfertPublicadas(idEmpresa);

@@ -1,0 +1,70 @@
+﻿
+
+@model IEnumerable<Ofertalaboral>
+@using PORTAL_TRABAJO.Web.Helper
+<h1>Postulaciones</h1>
+
+
+<h2 id="txtNropostulaciones">Hay @Model.Count() postulaciones </h2>
+
+<form asp-action="verPostulantesOferta" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Filtro:<input type="text" name="searchString" value="@ViewData["CurrentFilter"]" />
+            <input type="submit" value="Buscar" class="btn btn-default" />
+            <a asp-action="verPostulantesOferta">Todos los registros</a>
+        </p>
+    </div>
+
+</form>
+
+
+<!--<-->@*table id="tbPostulaciones" class="table table-active">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>NOMBRE</th>
+            <th>APELLIDOS</th>`
+
+        </tr>
+    </thead>
+
+
+    <tbody>*@
+
+
+
+@*</tbody>
+    </table>*@
+
+@foreach (var item in Model)
+{
+
+
+    @*<tr>
+            <td>@item.CandidatoIdcandidatNavigation.Nombres</td>
+            <td>@item.CandidatoIdcandidatNavigation.Apellidos</td>
+            <td>@item.CandidatoIdcandidatNavigation.Telefono.</td>
+
+
+        </tr>*@
+
+    <div class="card">
+        <h5 class="card-header">@item.Titulooferta   </h5>
+
+
+        <div class="card-body">
+
+           <img class="card-img-overlay rounded-circle" id="imagenCandidato" asp-append-version="true" src="@("~/Images/"+ item.Empresa.Logoempresa)" />
+            <div class="align-content-sm-center" id="txtDestele">
+                <h5 class="card-title">@item.Fechapublicacion.ToString()</h5>
+                <p class="card-text">@item.Jornada</p>
+
+            </div>
+
+            <a asp- controller="OfertaLaboral" asp-action="VerPostulantesOferta" asp-route-id="@SessionHelper.GetValue(User,"ID_EMPRESA")" class="btn btn-danger">VER INSCRITOS</a>
+        </div>
+    </div>
+
+}
+

@@ -106,8 +106,8 @@ namespace PORTAL_TRABAJO.Web.Controllers
                 Requisitos = Requisitos,
                 Fechafin=FechaFin,
                 Fechapublicacion=FechaInicio,
-                EmpresaId= 1,//int.Parse(SessionHelper.GetValue(User, "ID_EMPRESA")),
-                JornadaId=Jornada,
+                EmpresaId = int.Parse(SessionHelper.GetValue(User, "ID_EMPRESA")),//int.Parse(SessionHelper.GetValue(User, "ID_EMPRESA")),
+                JornadaId =Jornada,
                 Salario = Salario,
                 
             };
@@ -129,7 +129,17 @@ namespace PORTAL_TRABAJO.Web.Controllers
             return Json(exito);
         }
 
+        public async Task<IActionResult> MisOfertas()
+        {
 
+
+            int idEmpresa = int.Parse(SessionHelper.GetValue(User, "ID_EMPRESA"));//obtener el id de la persona logueada
+
+
+            var misOfertaspublicadas = await _ofertaRepository.listOfertPublicadas(idEmpresa);
+
+            return PartialView(misOfertaspublicadas);
+        }
 
 
 

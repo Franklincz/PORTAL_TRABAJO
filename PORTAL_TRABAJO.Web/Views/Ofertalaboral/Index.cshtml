@@ -26,7 +26,7 @@
 <!-- Modal -->
 <div class="modal fade" id="modalRegistrOfertaLaboral" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl" role="document">
-        ">
+       
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel"></h5>
@@ -209,10 +209,39 @@
 
 <div id="divListadoRegistroOferta">
 
+    <!---la lista de ofertas del admi logueado-->
 </div>
 
 
 <script>
+
+    CargarListaIOfertas();
+    
+    function CargarListaIOfertas() {
+        $.ajax({
+            type: "GET",
+            url: "MisOfertas",
+            cache: false,
+            success: function (dataHtml) {
+                $("#divListadoRegistroOferta").html(dataHtml);
+            }
+
+        });
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         $("#btnCrearOferta").click(function () {
 
@@ -259,8 +288,10 @@
                 success: function (exito) {
                     if (exito) {
 
-                        alert("Se registró correctamente!")
-
+                        swal("Se registró correctamente!")
+                        
+                        CargarListaIOfertas()
+                        
                         $("#modalRegistrOfertaLaboral").modal("toggle");
                     } else {
 
