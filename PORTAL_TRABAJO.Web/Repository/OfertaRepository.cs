@@ -177,6 +177,63 @@ namespace PORTAL_TRABAJO.Web.Repository
 
 
 
+        //add 
+        public static IEnumerable<Ofertalaboral> Listado()
+        {
+
+            using var data = new DBPortaldeEmpleoContext();
+            var registro = data.Ofertalaboral.ToList();
+            return registro;
+
+
+        }
+
+
+        public static Ofertalaboral Obtener(int id)
+        {
+            using var data = new DBPortaldeEmpleoContext();
+            var registro = data.Ofertalaboral.Where(x => x.Id == id).FirstOrDefault();
+            return registro;
+
+        }
+
+
+        public static bool Insertar(Ofertalaboral oferta)
+        {
+            bool exito = true;
+
+            try
+            {
+                using var data = new DBPortaldeEmpleoContext();
+                data.Ofertalaboral.Add(oferta);
+                data.SaveChanges();
+            }
+            catch (Exception)
+            {
+
+                exito = false;
+
+            }
+            return exito;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     }
 

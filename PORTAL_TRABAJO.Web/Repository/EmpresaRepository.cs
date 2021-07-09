@@ -17,7 +17,7 @@ namespace PORTAL_TRABAJO.Web.Repository
 
             using var httpClient = new HttpClient();
             using var response = await httpClient
-                .GetAsync("http://localhost:51862/api/Empresa/GetEmpresas");
+                .GetAsync("http://localhost:41565/api/Empresa/GetEmpresas");
             string apiResponse = await response.Content.ReadAsStringAsync();
             var customers = JsonConvert.DeserializeObject<IEnumerable<Empresa>>(apiResponse);
 
@@ -29,7 +29,7 @@ namespace PORTAL_TRABAJO.Web.Repository
         {
             using var httpClient = new HttpClient();
             using var response = await httpClient
-                .GetAsync("http://localhost:51862/api/Empresa/GetEmpresaById/" + id);
+                .GetAsync("http://localhost:41565/api/Empresa/GetEmpresaById/" + id);
             string apiResponse = await response.Content.ReadAsStringAsync();
             var customers = JsonConvert.DeserializeObject<Empresa>(apiResponse);
 
@@ -46,7 +46,7 @@ namespace PORTAL_TRABAJO.Web.Repository
 
             using var httpClient = new HttpClient();
             using var response = await httpClient
-                .PostAsync("http://localhost:51862/api/Empresa/RegistrarEmpresa", data);
+                .PostAsync("http://localhost:41565/api/Empresa/RegistrarEmpresa", data);
             string apiResponse = await response.Content.ReadAsStringAsync();
             var customers = JsonConvert.DeserializeObject<Empresa>(apiResponse);
             if (customers == null)
@@ -65,7 +65,7 @@ namespace PORTAL_TRABAJO.Web.Repository
                 //Se obtiene el customer por ID 
                 using var httpClient = new HttpClient();
                 using var response = await httpClient
-                    .GetAsync("http://localhost:51862/api/Empresa/GetEmpresaById/" + empresa.Id);
+                    .GetAsync("http://localhost:41565/api/Empresa/GetEmpresaById/" + empresa.Id);
                 string apiResponse = await response.Content.ReadAsStringAsync();
                 var customerByID = JsonConvert.DeserializeObject<Empresa>(apiResponse);
 
@@ -75,7 +75,7 @@ namespace PORTAL_TRABAJO.Web.Repository
                 var data = new StringContent(json, Encoding.UTF8, "application/json");
 
                 using var responsePut = await httpClient
-                    .PutAsync("http://localhost:51862/api/Empresa/ActualizarEmpresa", data);
+                    .PutAsync("http://localhost:41565/api/Empresa/ActualizarEmpresa", data);
 
                 string apiResponsePut = await responsePut.Content.ReadAsStringAsync();
                 var customerResponse = JsonConvert.DeserializeObject<Empresa>(apiResponsePut);
@@ -104,7 +104,7 @@ namespace PORTAL_TRABAJO.Web.Repository
 
 
                 using var responseDelete = await httpClient
-                  .DeleteAsync("http://localhost:51862/api/Empresa/EliminarEmpresa/" + id);
+                  .DeleteAsync("http://localhost:41565/api/Empresa/EliminarEmpresa/" + id);
                 string apiResponseDelete = await responseDelete.Content.ReadAsStringAsync();
                 if ((int)responseDelete.StatusCode == 404)
                     exito = false;

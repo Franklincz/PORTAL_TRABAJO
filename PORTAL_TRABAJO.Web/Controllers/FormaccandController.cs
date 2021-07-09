@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using PORTAL_TRABAJO.Web.Helper;
 using PORTAL_TRABAJO.Web.Models;
 using PORTAL_TRABAJO.Web.Repository;
 using System;
@@ -33,17 +34,19 @@ namespace PORTAL_TRABAJO.Web.Controllers
         }
         public async Task<IActionResult> ListadoFormAcad()
         {
-            var portalEmpleo4Context = _context.Formaccand.Include(f => f.Areaestudio).Include(f => f.CandidatoIdcandidatNavigation).Include(f => f.Pais).Include(f => f.Tipoestudio);
+            var portalEmpleo4Context = _context.Formaccand.Include(f => f.Areaestudio).Include(f => f.CandidatoIdcandidatNavigation).Include(f => f.Pais).Include(f => f.Tipoestudio).Where(x => x.CandidatoIdcandidat == int.Parse(SessionHelper.GetNameIdentifier(User)));
             return PartialView(await portalEmpleo4Context.ToListAsync());
         }
         [HttpPost]
+    
         public async Task<IActionResult> Index(int id,
            string CentroEduc, int TipoEstudio, string TituloCarrera, int AreaEst,
            DateTime FechIn, DateTime FechTerm, int Pais)
         {
+            int idCandidato = int.Parse(SessionHelper.GetNameIdentifier(User));
             var formaccand = new Formaccand()
             {
-
+                CandidatoIdcandidat = idCandidato,
                 Nombrecentroed = CentroEduc,
                 Fechainicio = FechIn,
                 Fechafin = FechTerm,

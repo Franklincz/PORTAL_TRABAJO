@@ -10,11 +10,11 @@
     <title>@ViewData["Title"] - PORTAL_TRABAJO.Web</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
-
+    <link href="~/lib/bootstrap-sweetalert/sweetalert.css" rel="stylesheet" />
     <!--Add-->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    @*<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>*@
-
+    
+    <script src="~/lib/bootstrap-sweetalert/sweetalert.js"></script>
 
 </head>
 <body>
@@ -55,11 +55,11 @@
                             {
 
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Ofertalaboral" asp-action="MisOfertas">MIs avisos</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Empresa" asp-action="MisOfertas">MIs avisos</a>
                                 </li>
                                 @*<a asp- controller="Ofertalaboral" asp-action="MisOfertas" class="btn btn-danger">VER INSCRITOS</a>*@
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="#" asp-action="#">Crear Aviso</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Ofertalaboral" asp-action="Index">Crear Aviso</a>
                                 </li>
 
                                 <li class="nav-item">

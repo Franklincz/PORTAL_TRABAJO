@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PORTAL_TRABAJO.Web.Helper;
 using PORTAL_TRABAJO.Web.Models;
 using PORTAL_TRABAJO.Web.Repository;
 using System;
@@ -10,6 +11,14 @@ namespace PORTAL_TRABAJO.Web.Controllers
 {
     public class EmpresaController : Controller
     {
+
+        private readonly IOfertaRepository _ofertaRepository;
+
+        public EmpresaController(IOfertaRepository ofertaRepository )
+        {
+            _ofertaRepository = ofertaRepository;
+        }
+
         public IActionResult Index()
         {
             return View();
@@ -64,5 +73,26 @@ namespace PORTAL_TRABAJO.Web.Controllers
             }
             return Json(exito);
         }
+
+
+
+
+        //para ver mis ofertas
+        public async Task<IActionResult> MisOfertas()
+        {
+
+
+            int idEmpresa = int.Parse(SessionHelper.GetValue(User, "ID_EMPRESA"));
+
+
+            var misOfertaspublicadas = await _ofertaRepository.listOfertPublicadas(idEmpresa);
+
+            return View(misOfertaspublicadas);
+        }
+
+
+
+
+
     }
 }

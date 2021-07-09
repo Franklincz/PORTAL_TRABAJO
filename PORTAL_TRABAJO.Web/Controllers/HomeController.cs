@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using PORTAL_TRABAJO.Web.Helper;
 using PORTAL_TRABAJO.Web.Models;
 using PORTAL_TRABAJO.Web.Repository;
 using System;
@@ -25,14 +26,28 @@ namespace PORTAL_TRABAJO.Web.Controllers
         {
 
 
-            if (User.Identity.IsAuthenticated)
+            //if (SessionHelper.GetValue(User, "Dato") == "ADMIEMPRESA")
+            //{
+
+            //    return RedirectToAction("MisOfertas", "Empresa");
+            //}
+            //
+
+
+            if (SessionHelper.GetValue(User, "Dato") == "ADMIEMPRESA")
             {
-                return RedirectToAction("GetAllOfertas","Ofertalaboral");
+                return RedirectToAction("MisOfertas", "Empresa");
+               
             }
-            else
+            if (SessionHelper.GetValue(User, "Dato") == "CANDIDATO")
             {
+                return RedirectToAction("GetAllOfertas", "Ofertalaboral");
+            }
+                    else
+                    {
                 return View();
             }
+          
         }
 
         public IActionResult Privacy()

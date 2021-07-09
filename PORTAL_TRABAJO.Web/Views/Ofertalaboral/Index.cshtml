@@ -1,0 +1,283 @@
+﻿
+
+@model Ofertalaboral 
+
+<div class="alert alert-warning" role="alert">
+
+    <div class=" row">
+        <div class="col-md-7">
+            <h3>
+                Registro de  Oferta Laboral
+            </h3>
+
+        </div>
+        <div class="col-md-5">
+            <button id="btnRegistrarOferta"
+                    class=" btn btn-secondary">
+
+                Registrar
+            </button>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="modalRegistrOfertaLaboral" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"></h5>
+                <div class="col">
+                    <p class="text-center">Título</p>
+                    <input type="text" class=" form-control" id="txtTitulo" />
+                </div>
+
+
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <div class=" container-fluid">
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class=" form-group">
+                                <label for="exampleFormControlTextarea1">Descripción del puesto</label>
+                                <textarea class="form-control" id="txtDescripcionpuesto" rows="3"></textarea>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class=" form-group">
+                                <label> Inicio de postulación</label>
+                                <input type="date" id="txtFechaIn" name="trip-start"
+                                       value="2021-07-08"
+                                       min="2021-07-08" max="2021-12-31">
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class=" form-group">
+                                <label> Fin de postulación</label>
+                                <input type="date" id="txtFechaF" name="trip-start"
+                                       value="2021-07-08"
+                                       min="2021-01-01" max="2021-12-31">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class=" form-group">
+                                <label for="exampleFormControlTextarea1"> Detalle de la oferta</label>
+                                <textarea class="form-control" id="txtDetalle" rows="3"></textarea>
+                            </div>
+
+                        </div>
+                        <div class="col-md-6">
+                            <div class=" form-group">
+                                <label> Lugar</label>
+                                <input type="text" class=" form-control" id="txtLugar" />
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class=" form-group">
+                                <label for="exampleFormControlTextarea1"> Perfil del candidato</label>
+                                <textarea class="form-control" id="txtPerfil" rows="3"></textarea>
+                            </div>
+
+                        </div>
+
+
+                        <div class=" col-md-3">
+
+                            <label class="input-group-text" for="inputGroupSelect01">Jornada</label>
+                        </div>
+
+                        <div class="col-md-3">
+                            @*<select class="form-select" id="txtJornada">
+
+                                <option selected></option>
+                                <option value="Full time">Full time</option>
+                                <option value="Part time">Part time</option>
+
+                            </select>*@
+
+
+                            <select asp-for="JornadaId" class="form-control" asp-items="ViewBag.EstadocivilIdestciv"></select>
+
+                        </div>
+
+
+
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class=" form-group">
+                                <label for="exampleFormControlTextarea1"> Requisitos</label>
+                                <textarea class="form-control" id="txtRequisitos" rows="3"></textarea>
+                            </div>
+
+                        </div>
+                        <div class="col-md-6">
+                            <label> Salario </label>
+                            <div class="input-group">
+
+                                <input type="text" class="form-control" id="txtSalario" aria-label=" Sol amount (with dot and two decimal places)">
+                                <span class="input-group-text">S/.</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class=" form-group">
+                                <label for="exampleFormControlTextarea1"> Beneficios</label>
+                                <textarea class="form-control" id="txtBeneficios" rows="3"></textarea>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class=" col-md-3">
+
+                            <label class="input-group-text" for="inputGroupSelect01">Modalidad</label>
+                        </div>
+
+                        <div class="col-md-3">
+                            <select class="form-select" id="txtModalidad">
+
+                                <option selected></option>
+                                <option value="Presencial">Presencial</option>
+                                <option value="Semipresencial">Semipresencial</option>
+                                <option value="Virtual">Virtual</option>
+                            </select>
+                        </div>
+
+
+
+
+                    </div>
+
+
+
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="d-grid gap-5 col-4 mx-auto">
+
+                    <button type="button" class="btn btn-success" id="btnCrearOferta">Crear Oferta</button>
+                    <button type="button" class="btn btn-info"> Actualizar</button>
+
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" aria-label="Cancelar"> Cancelar</button>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<input type="hidden" id=" = hidIDRegistro" value=" -1" />
+
+
+<hr />
+
+<div id="divListadoRegistroOferta">
+
+</div>
+
+
+<script>
+
+        $("#btnCrearOferta").click(function () {
+
+            let vIDRegistro = $("#hidIDRegistro").val();
+            let vTitulo = $("#txtTitulo").val();
+            let vDescripcionpuesto = $("#txtDescripcionpuesto").val();
+            let vDetalle = $("#txtDetalle").val();
+            let vPerfil = $("#txtPerfil").val();
+            let vRequisitos = $("#txtRequisitos").val();
+            let vBeneficios = $("#txtBeneficios").val();
+            let vLugar = $("#txtLugar").val();
+            
+            let vSalario = $("#txtSalario").val();
+            let vModalidad = $("#txtModalidad").val();
+            let vFechIni = $("#txtFechaIn").val();
+            let vFechFin = $("#txtFechaF").val();
+            let vIdJornada = $("#JornadaId").val();
+
+
+
+            $.ajax({
+
+                type: "POST",
+                url: "Crear",
+                cache: false,
+                data: {
+                    idRegistro: vIDRegistro,
+                    Titulo:vTitulo,
+                    Descripcionpuesto: vDescripcionpuesto,
+                    Detalle: vDetalle,
+                    Perfil: vPerfil,
+                    Requisitos: vRequisitos,
+                    Beneficios: vBeneficios,
+                    Lugar: vLugar,
+                    Jornada: vIdJornada,
+                    Salario: vSalario,
+                    Modalidad: vModalidad,
+                    FechaInicio: vFechIni,
+                    FechaFin: vFechFin,
+
+
+                },
+
+                success: function (exito) {
+                    if (exito) {
+
+                        alert("Se registró correctamente!")
+
+                        $("#modalRegistrOfertaLaboral").modal("toggle");
+                    } else {
+
+                        alert(" Error al registrar oferta laboral")
+                    }
+
+                }
+
+
+            });
+
+        });
+
+        $("#btnRegistrarOferta").click(function () {
+
+            $("#modalRegistrOfertaLaboral").modal();
+        });
+
+</script>
+

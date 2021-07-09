@@ -7,25 +7,6 @@
 
 
 
-    @*<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        @<embed src="@Model.BookPdfUrl" class="w-100" />@
-                        @<iframe src="@Model.BookPdfUrl" class="w-100"></iframe>@
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>*@
-
     
 
 
@@ -34,13 +15,13 @@
 
 
 <div class="container">
-    <h3 class="display-4">Oferta details</h3>
+    <h3 class="display-6">Oferta details</h3>
 
 
 
 
-    <div class="card">
-        <div class="card-header">
+    <div class="card ">
+        <div class="card-header" style="color:blue;font-weight:bold">
             @Model.Titulooferta
         </div>
 
@@ -81,34 +62,40 @@
                 <div class="row">
                     <div class="col-md-6">
                         <!--<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                        <ol class="carousel-indicators">
+    <ol class="carousel-indicators">
 
 
-                            }
-                        </ol>-->
+        }
+    </ol>-->
                         @*<div class="carousel-inner">
-                                @for (int i = 0; i < Model.Gallery.Count(); i++)
-                                {
-                                    <div class="@(i==0 ? "carousel-item active" : "carousel-item") ">
-                                        <img class="d-block w-100" src="@Model.Gallery[i].URL" alt="@Model.Gallery[i].Name">
-                                    </div>
-                                }
+            @for (int i = 0; i < Model.Gallery.Count(); i++)
+            {
+                <div class="@(i==0 ? "carousel-item active" : "carousel-item") ">
+                    <img class="d-block w-100" src="@Model.Gallery[i].URL" alt="@Model.Gallery[i].Name">
+                </div>
+            }
 
-                            </div>*@
+        </div>*@
                         <!--<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                            </a>
-                        </div>-->
-                        <h3>Detalle Oferta</h3>
-                        <div class="text-body">
-                            @Model.Detalleoferta
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>-->
+                        <h4 style="margin-left:20px;color:darkviolet;font-weight:bold">Detalle Oferta</h4>
+                        <div class="text-body" style="text-align:start;font-weight:bold ;margin-left:12px ">
+                            <p style="font-size:12px">@Model.Detalleoferta</p>
                         </div>
 
+
+                        <!---requisitos-->
+                        <h4 style="margin-left:20px;color:darkviolet;font-weight:bold">Requisitos</h4>
+                        <div class="text-body" style="text-align:start;font-weight:bold ;margin-left:12px ">
+                            <p style="font-size:12px">@Model.Requisitos</p>
+                        </div>
 
 
 
@@ -122,7 +109,7 @@
 
                         <div class="row">
                             <div class="col-md-12 text-primary">
-                                <span class="label label-primary">By: </span>
+                                <span class="label label-primary">Publicado el: </span>
                                 <span class="monospaced">@Model.Fechapublicacion.ToString()</span>
                             </div>
                         </div>
@@ -130,7 +117,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <p class="description">
-                                    @Model.Detalleoferta
+                                    @Model.Detalleoferta + hhoollaaaa
                                 </p>
                             </div>
                         </div>
@@ -220,7 +207,7 @@
                     <div class="col-md-6">
                         <div class="row">
                             <div class="col-md-12">
-                                <h1>Consideraciones</h1>
+                                <h3>Consideraciones</h3>
                             </div>
                         </div>
 
@@ -234,7 +221,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <p class="description">
-                                    @Model.Detalleoferta
+                                    @Model.Empresa.Email
                                 </p>
                             </div>
                         </div>

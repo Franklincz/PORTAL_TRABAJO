@@ -84,9 +84,6 @@ namespace PORTAL_TRABAJO.Web.Controllers
 
 
         }
-        //public IActionResult ListadoExpLab()
-        //{
-        //    return PartialView();
-        //}
+        
     }
 }

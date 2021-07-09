@@ -4,16 +4,16 @@
 
 
 <div class="card mb-4 shadow-sm">
-    @*<img src="@(string.IsNullOrEmpty(Model.CoverImageUrl) ? "/images/noimage.png" : Model.CoverImageUrl)" class="img-thumbnail" />*@
+   
     <div class="card-body">
         <h4 class="card-title"style="color:blue">@(string.IsNullOrEmpty(Model.Titulooferta) ? "Name is not available" : Model.Titulooferta)</h4>
-        <p class="card-text">@(string.IsNullOrEmpty(Model.Detalleoferta) ? "Description is not availabe": Model.Detalleoferta)</p>
+        <p class="card-text">@(string.IsNullOrEmpty(Model.Empresa.Ubicacion) ? "Description is not availabe": Model.Empresa.Ubicacion)</p>
         <div class="d-flex justify-content-between align-items-center">
             <div class="btn-group">
                 <a asp-route="ofertaDetailsRoute" asp-route-id="@Model.Id"
-                   class="btn btn-sm btn-outline-secondary">View details</a>
+                   class="btn btn-sm btn-outline-secondary">Ver detalle</a>
             </div>
-            <small class="text-muted">Publicado el @(string.IsNullOrEmpty(Model.Fechapublicacion.ToString()) ? "NA" : Model.Fechapublicacion)</small>
+            
 
             <small class="text-muted" >Publicado el @Html.ValueFor(modelItem => Model.Fechapublicacion, "{0:dd/MM/yyyy}")</small>
             @{
