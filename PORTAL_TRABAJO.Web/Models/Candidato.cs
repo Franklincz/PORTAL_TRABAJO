@@ -32,7 +32,8 @@ namespace PORTAL_TRABAJO.Web.Models
         public int? EstadocivilIdestciv { get; set; }
         public string Dochojavida { get; set; }
         public string SalCandidato { get; set; }
-
+        
+      
         public virtual Estadocivil EstadocivilIdestcivNavigation { get; set; }
         public virtual Genero GeneroIdgeneroNavigation { get; set; }
         public virtual ICollection<Detpostuof> Detpostuof { get; set; }

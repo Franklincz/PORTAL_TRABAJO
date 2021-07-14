@@ -43,38 +43,38 @@ namespace PORTAL_TRABAJO.Web.Repository
 
         public static async Task<bool> Insertar(Candidato Candidato)
         {
-            //    bool exito = true;
+                bool exito = true;
 
-            //    var json = JsonConvert.SerializeObject(Candidato);
-            //    var data = new StringContent(json, Encoding.UTF8, "application/json");
+               var json = JsonConvert.SerializeObject(Candidato);
+                var data = new StringContent(json, Encoding.UTF8, "application/json");
 
-            //    using var httpClient = new HttpClient();
-            //    using var response = await httpClient
-            //        .PostAsync("http://localhost:62992/api/Candidato/PostCandidato", data);
-            //    string apiResponse = await response.Content.ReadAsStringAsync();
-            //    var candidato = JsonConvert.DeserializeObject<Candidato>(apiResponse);
+                using var httpClient = new HttpClient();
+               using var response = await httpClient
+                   .PostAsync("http://localhost:41565/api/Candidato/PostCandidato", data);
+                string apiResponse = await response.Content.ReadAsStringAsync();
+                var candidato = JsonConvert.DeserializeObject<Candidato>(apiResponse);
 
-            //    if (candidato == null)
-            //        exito = false;
-
-
-            bool exito = true;
-
-            try
-            {
+                if (candidato == null)
+                    exito = false;
 
 
-                using var data = new DBPortaldeEmpleoContext();
-                data.Candidato.Add(Candidato);
-                await data.SaveChangesAsync();
-                Candidato.SalCandidato = "";
-            }
-            catch (Exception)
-            {
-                exito = false;
-            }
+            //bool exito = true;
 
-            return exito;
+            //try
+            //{
+
+
+            //    using var data = new DBPortaldeEmpleoContext();
+            //    data.Candidato.Add(Candidato);
+            //    await data.SaveChangesAsync();
+            //    Candidato.SalCandidato = "";
+            //}
+            //catch (Exception)
+            //{
+            //    exito = false;
+            //}
+
+           return exito;
 
 
 
@@ -90,7 +90,7 @@ namespace PORTAL_TRABAJO.Web.Repository
 
                 using var httpClient = new HttpClient();
                 using var response = await httpClient
-                    .GetAsync("http://localhost:62992/api/Candidato/GetCandidatoById/" + Candidato.Idcandidat);
+                    .GetAsync("http://localhost:41565/api/Candidato/GetCandidatoById/" + Candidato.Idcandidat);
                 string apiResponse = await response.Content.ReadAsStringAsync();
                 var customerByID = JsonConvert.DeserializeObject<Candidato>(apiResponse);
 
