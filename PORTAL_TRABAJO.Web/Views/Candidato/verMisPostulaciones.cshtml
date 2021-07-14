@@ -1,18 +1,25 @@
 ﻿@model IEnumerable<Detpostuof>
+@if (Model.Count()==0) {
+    
+   <div class="text-center">
+       <h1>Aun no has postulado a ninguna oferta , que esperas !!!</h1>
+
+   </div>
+}
 
 @foreach (var item in Model)
 {
 
     <div class="card mb-3" style="max-width: 540px;">
         <div class="row no-gutters">
-            <div class="col-md-4">
+            @*<div class="col-md-4">
                 <img src="..." alt="...">
-            </div>
+            </div>*@
             <div class="col-md-8">
                 <div class="card-body">
-                    <h5 class="card-title">@item.Ofertalaboral.Titulooferta</h5>
-                    <p class="card-text">@item.Ofertalaboral.Detalleoferta</p>
-                    <p class="card-text"><small class="text-muted">@item.Ofertalaboral.Empresa.Razonsocial</small></p>
+                    <h5 class="card-title" style="color:blue;font-weight:bold">@item.Ofertalaboral.Titulooferta</h5>
+                    <p class="card-text">@item.Ofertalaboral.Empresa.Razonsocial</p>
+                    <p class="card-text" style="color:red; font-weight:bold"><small class="text">@item.Estado</small></p>
                 </div>
             </div>
         </div>

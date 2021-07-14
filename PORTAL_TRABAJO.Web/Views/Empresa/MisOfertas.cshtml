@@ -49,24 +49,27 @@
 
         </tr>*@
 
-    <div class="card">
-        <h5 class="card-header">@item.Titulooferta   </h5>
+<div class="card">
+    <h5 class="card-header">@item.Titulooferta   </h5>
 
 
-        <div class="card-body">
+    <div class="card-body">
 
-            <img class="card-img-overlay rounded-circle" id="imagenCandidato" asp-append-version="true" src="@("~/Images/"+ item.Empresa.Logoempresa)" />
-            <div class="align-content-sm-center" id="txtDestele">
-                <h5 class="card-title">@item.Fechapublicacion.ToString()</h5>
-                <p class="card-text">@item.Jornada</p>
+        <img class="card-img-overlay rounded-circle" id="imagenCandidato" asp-append-version="true" src="@("~/Images/"+ item.Empresa.Logoempresa)" />
+        <div class="align-content-sm-center" id="txtDestele">
+            <h5 class="card-title">@item.Fechapublicacion.ToString()</h5>
+            <p class="card-text">@item.Jornada</p>
 
-            </div>
-
-            <a asp- controller="OfertaLaboral" asp-action="VerPostulantesOferta" asp-route-id="@SessionHelper.GetValue(User,"ID_EMPRESA")" class="btn btn-danger">VER INSCRITOS</a>
-            <!--aqui boton para editar oferta-->
-            <a asp- controller="OfertaLaboral" asp-action="VerPostulantesOferta" asp-route-id="@SessionHelper.GetValue(User,"ID_EMPRESA")" class="btn btn-danger">EDITAR OFERTAAAAA</a>
         </div>
+
+
+        <!--aqui boton para editar oferta-->
+        @*<a asp- controller="OfertaLaboral" asp-action="VerPostulantesOferta" asp-route-id="@SessionHelper.GetValue(User,"ID_EMPRESA")" class="btn btn-danger">EDITAR OFERTAAAAA</a>*@
     </div>
+
+
+    <a asp- controller="OfertaLaboral" asp-action="VerPostulantesOferta" asp-route-id="@SessionHelper.GetValue(User,"ID_EMPRESA")" class="btn btn-danger">VER INSCRITOS</a>
+</div>
 
 }
 

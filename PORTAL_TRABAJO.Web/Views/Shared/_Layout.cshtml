@@ -13,100 +13,106 @@
     <link href="~/lib/bootstrap-sweetalert/sweetalert.css" rel="stylesheet" />
     <!--Add-->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.25/af-2.3.7/b-1.7.1/b-colvis-1.7.1/b-html5-1.7.1/b-print-1.7.1/datatables.min.css" />
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.25/af-2.3.7/b-1.7.1/b-colvis-1.7.1/b-html5-1.7.1/b-print-1.7.1/datatables.min.js"></script>
+
     <script src="~/lib/bootstrap-sweetalert/sweetalert.js"></script>
 
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light  bg-white border-bottom box-shadow mb-3">
+        <nav class="  navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3" style="background-color: red;">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">PORTAL_TRABAJO.Web</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
-
-
-               
-
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-
-
-
-                    <!---render logininfo-->
-                    <ul class="navbar-nav">
-                        <partial name="_LoginInfo" />
-                    </ul>
-                    <!---end render logininfo-->
+                <!---  navbar navbar-dark bg-primary-->
 
 
 
 
-                    <ul class="navbar-nav flex-grow-1">
+
+      <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
 
 
 
-                        @if (User.Identity.IsAuthenticated)
+          <!---render logininfo-->
+                <ul class="navbar-nav">
+                    <partial name="_LoginInfo" />
+                </ul>
+                <!---end render logininfo-->
+
+
+
+
+                <ul class="navbar-nav flex-grow-1">
+
+
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+
+                        if (SessionHelper.GetValue(User, "Dato") == "ADMIEMPRESA")
                         {
 
-                            if (SessionHelper.GetValue(User, "Dato") == "ADMIEMPRESA")
-                            {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Empresa" asp-action="MisOfertas">MIs avisos</a>
+                            </li>
+                            @*<a asp- controller="Ofertalaboral" asp-action="MisOfertas" class="btn btn-danger">VER INSCRITOS</a>*@
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Ofertalaboral" asp-action="Index">Crear Aviso</a>
+                            </li>
 
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Empresa" asp-action="MisOfertas">MIs avisos</a>
-                                </li>
-                                @*<a asp- controller="Ofertalaboral" asp-action="MisOfertas" class="btn btn-danger">VER INSCRITOS</a>*@
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Ofertalaboral" asp-action="Index">Crear Aviso</a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Empresa" asp-action="Index">Mi Perfil</a>
-                                </li>
-
-
-
-
-                            }
-                            else if (SessionHelper.GetValue(User, "Dato") == "CANDIDATO")
-                            {
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Ofertalaboral" asp-action="GetAllOfertas">Ver ofertas</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Candidato" asp-action="verMisPostulaciones">Mis postulaciones</a>
-                                </li>
-                            }
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Empresa" asp-action="Index">Mi Perfil</a>
+                            </li>
 
 
 
 
                         }
-
-
-
-
-                        @if (User.Identity.IsAuthenticated == false)
+                        else if (SessionHelper.GetValue(User, "Dato") == "CANDIDATO")
                         {
-
-
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Candidatos</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Ofertalaboral" asp-action="GetAllOfertas">Ver ofertas</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Empresa</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Candidato" asp-action="verMisPostulaciones">Mis postulaciones</a>
                             </li>
-
-
                         }
 
 
 
-                    </ul>
 
-                </div>
+                    }
+
+
+
+
+                    @if (User.Identity.IsAuthenticated == false)
+                    {
+
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Candidatos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Empresa</a>
+                        </li>
+
+
+                    }
+
+
+
+                </ul>
+
+            </div>
             </div>
         </nav>
     </header>

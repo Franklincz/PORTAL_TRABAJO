@@ -10,11 +10,10 @@ namespace PORTAL_TRABAJO.Web.Controllers
 {
     public class ReporteController : Controller
     {
-        public class ReporteEController : Controller
-        {
+       
             private readonly DBPortaldeEmpleoContext _context;
 
-            public ReporteEController(DBPortaldeEmpleoContext context)
+            public ReporteController(DBPortaldeEmpleoContext context)
             {
                 _context = context;
             }
@@ -147,5 +146,5 @@ namespace PORTAL_TRABAJO.Web.Controllers
             }
         }
     
-}
+
 }

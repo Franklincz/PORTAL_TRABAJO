@@ -101,11 +101,11 @@
 
                     </div>
                     <div class="col-md-6">
-                        <div class="row">
+                        @*<div class="row">
                             <div class="col-md-12">
                                 <h1>@Model.Titulooferta</h1>
                             </div>
-                        </div>
+                        </div>*@
 
                         <div class="row">
                             <div class="col-md-12 text-primary">
@@ -114,20 +114,20 @@
                             </div>
                         </div>
 
-                        <div class="row">
+                        @*<div class="row">
                             <div class="col-md-12">
                                 <p class="description">
                                     @Model.Detalleoferta + hhoollaaaa
                                 </p>
                             </div>
-                        </div>
+                        </div>*@
 
                         <div class="row">
-                            <div class="col-md-4">
+                            @*<div class="col-md-4">
                                 <a class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal">
                                     Read now
                                 </a>
-                            </div>
+                            </div>*@
                         </div>
 
                         <hr />
@@ -166,24 +166,24 @@
                         @*<div class="carousel-inner">*@
 
                         <div>
-                            <img class="d-block w-100" style="height:20px;width:20px" src="~/Images/15c60ebd-b11f-4727-8cf6-15b6e9df2962-carbon.png" alt="NUESTRO LOGO">
+                            <img class="d-block w-100" @*style="height:100px;width:100px"*@ src="@Model.Empresa.Logoempresa." alt="NUESTRO LOGO">
                         </div>
 
 
                         @*</div>*@
                         @*<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                            </a>*@
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>*@
                         @*</div>*@
 
 
 
-
+                        @Model.Detalleoferta
 
 
 
@@ -196,6 +196,7 @@
 
 
                         <h3>@Model.Empresa.Razonsocial</h3>
+                        <hr />
                         <div class="text-body">
                             @Model.Empresa.Descripcionempr
                         </div>
@@ -213,8 +214,8 @@
 
                         <div class="row">
                             <div class="col-md-12 text-primary">
-                                <span class="label label-primary">By: </span>
-                                <span class="monospaced">@Model.Empresa.Industria</span>
+                                <span class="label label-primary">Ruc:@Model.Empresa.Ruc </span>
+                                <span class="monospaced">@Model.Empresa.Ubicacion</span>
                             </div>
                         </div>
 
@@ -227,18 +228,18 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-md-4">
+                            @*<div class="col-md-4">
                                 <a class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal">
                                     Read now
                                 </a>
-                            </div>
+                            </div>*@
                         </div>
 
                         <hr />
 
                         <ul class="list-group">
-                            <li class="list-group-item"><span class="font-weight-bold">JOrnada - </span> @Model.Empresa.Industria</li>
-                            <li class="list-group-item"><span class="font-weight-bold">Sueldo - </span> @Model.Empresa.Telefono </li>
+                            <li class="list-group-item"><span class="font-weight-bold">Industria- </span> @Model.Empresa.Industria</li>
+                            <li class="list-group-item"><span class="font-weight-bold">Telefono - </span> @Model.Empresa.Telefono </li>
                             <li class="list-group-item"><span class="font-weight-bold">Empresa - </span> @Model.Empresa.Ubicacion</li>
                         </ul>
                     </div>
@@ -254,9 +255,14 @@
     <div class="card">
     <div class="card-body">
         <div class="btn-group">
-           
 
-            <a asp-action="Postular" asp-controller="DetPostuof" class="btn btn-primary my-2">Postularme</a>
+
+            @*<a asp-action="Postular" asp-controller="DetPostuof" class="btn btn-primary my-2">Postularme</a>*@
+            @*<a asp-route="ofertaDetailsRoute" asp-route-id="@Model.Id"
+               class="btn btn-sm btn-outline-secondary">Ver detalle</a>*@
+
+            <a asp-controller="DetPostuof"   asp-action="Postular" asp-route-id="@Model.Id">Postular</a>
+
         </div>
 
    </div>
@@ -275,7 +281,7 @@
 
 
     <div class="py-5 bg-light" id="similarBooks">
-        <h3 class="h3">Similar books</h3>
+        <h3 class="h3">Ofertas Similares</h3>
 
 
 

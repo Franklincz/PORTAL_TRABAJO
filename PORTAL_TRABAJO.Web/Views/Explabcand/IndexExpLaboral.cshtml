@@ -44,7 +44,7 @@
                     </div>
                     <br />
 
-                    <div class="row">
+                    @*<div class="row">
                         <div class="col-md-4">
                             <label>Estado</label>
                         </div>
@@ -58,19 +58,19 @@
 
                         </div>
 
-                    </div>
+                    </div>*@
                     <br />
 
                     <div class="row">
 
                         <div class="col-md-5">
                             <label>Periodo Inicio</label>
-                            <input type="date" class="form-control" id="datePerInicio" />
+                            <input type="month" class="form-control" id="datePerInicio" />
                         </div>
 
                         <div class="col-md-5">
                             <label>Periodo Fin</label>
-                            <input type="date" class="form-control" id="datePerFin" />
+                            <input type="month" class="form-control" id="datePerFin" />
                         </div>
 
 
@@ -156,7 +156,7 @@
 
         $.ajax({
             type: "POST",
-            url: "Index",
+            url: "IndexExpLaboral",
             cache: false,
             data: {
                 id: vIDExpLab,
@@ -178,8 +178,8 @@
             success: function (exito) {
                 if (exito) {
                     alert("Se registró correctamente")
-
-
+                    CargarListaExpL();
+                    $("#ModalExpLab").modal("toggle");
                 } else {
                     alert("Ocurrió un error en la transacción")
                 }

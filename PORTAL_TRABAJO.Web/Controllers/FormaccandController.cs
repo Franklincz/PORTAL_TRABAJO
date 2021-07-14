@@ -18,7 +18,7 @@ namespace PORTAL_TRABAJO.Web.Controllers
         {
             _context = context;
         }
-        public IActionResult Index()
+        public IActionResult IndexFormAcademic()
         {
             ViewData["AreaestudioId"] = new SelectList(_context.Areaestudio, "Id", "Descripcion");
             ViewData["CandidatoIdcandidat"] = new SelectList(_context.Candidato, "Idcandidat", "Idcandidat");
@@ -39,7 +39,7 @@ namespace PORTAL_TRABAJO.Web.Controllers
         }
         [HttpPost]
     
-        public async Task<IActionResult> Index(int id,
+        public async Task<IActionResult> IndexFormAcademic(int id,
            string CentroEduc, int TipoEstudio, string TituloCarrera, int AreaEst,
            DateTime FechIn, DateTime FechTerm, int Pais)
         {

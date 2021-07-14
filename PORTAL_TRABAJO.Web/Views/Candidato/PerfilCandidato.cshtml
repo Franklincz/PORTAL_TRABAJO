@@ -1,50 +1,40 @@
 ﻿@model PORTAL_TRABAJO.Web.Models.Candidato
 
 @{
-    ViewData["Title"] = "NewIdioma";
+    ViewData["Title"] = "Perfil Candidato";
 }
 
 
-
-
-
-<div class="container bootstrap snippet">
+<div class="container bootstrap snippet bg-primary text-white">
     <div class="row">
         <div class="col-sm-10"><h1>Mi perfil</h1></div>
-        <div class="col-sm-2"><a href="/users" class="pull-right"><img title="profile image" class="img-circle img-responsive" src="http://www.gravatar.com/avatar/28fd20ccec6865e2d5f0e1f4446eb7bf?s=100"></a></div>
+
     </div>
     <div class="row">
         <div class="col-sm-3">
             <!--left col-->
-
-
             <div class="text-center">
-                <img src="@Model.Foto" class="avatar img-circle img-thumbnail" alt="avatar">
-                <h6>Upload a different photo...</h6>
-                <input type="file" class="text-center center-block file-upload">
-            </div></hr><br>
+                    <img src="@Model.Foto" class="avatar img-circle img-thumbnail" alt="avatar">
+                    @*<h6>Upload a different photo...</h6>
+                    <input type="file" class="text-center center-block file-upload">*@
+                </div></hr><br>
 
 
-            <div class="panel panel-default">
-                <div class="panel-heading">Website <i class="fa fa-link fa-1x"></i></div>
-                <div class="panel-body"><a href="http://bootnipets.com">bootnipets.com</a></div>
-            </div>
+            @*<div class="panel panel-default">
+                    <div class="panel-heading">Website <i class="fa fa-link fa-1x"></i></div>
+                    <div class="panel-body"><a href="http://bootnipets.com">bootnipets.com</a></div>
+                </div>*@
 
 
-            <ul class="list-group">
-                <li class="list-group-item text-muted">Extras <i class="fa fa-dashboard fa-1x"></i></li>
-                <li class="list-group-item text-right"><span class="pull-left"><strong></strong></span> 125</li>
-                <li class="list-group-item text-right"><span class="pull-left"><strong>Likes</strong></span> 13</li>
-                <li class="list-group-item text-right"><span class="pull-left"><strong>Posts</strong></span> 37</li>
-                <li class="list-group-item text-right"><span class="pull-left"><strong>Followers</strong></span> 78</li>
+            <ul class="list-group bg-success">
+                <li class="list-group-item text-muted justify-content-center">CONTENIDO <i class="fa fa-dashboard fa-1x"></i></li>
+
+                <li class="list-group-item text-right"><span class="pull-left"><strong>@Html.ActionLink("EXPERIENCIA LABORAL", "IndexExpLaboral", "explabcand")</strong>
+                <li class="list-group-item text-right"><span class="pull-left"><strong>@Html.ActionLink("FORMACIÓN ACADÉMICA", "IndexFormAcademic", "formaccand")</strong>
+                <li class="list-group-item text-right"><span class="pull-left"><strong>@Html.ActionLink("IDIOMAS", "IndexIdioma", "Idiomacandid")</strong>
             </ul>
 
-            <div class="panel panel-default">
-                <div class="panel-heading">Social Media</div>
-                <div class="panel-body">
-                    <i class="fa fa-facebook fa-2x"></i> <i class="fa fa-github fa-2x"></i> <i class="fa fa-twitter fa-2x"></i> <i class="fa fa-pinterest fa-2x"></i> <i class="fa fa-google-plus fa-2x"></i>
-                </div>
-            </div>
+
 
         </div><!--/col-3-->
         <div class="col-sm-9">
@@ -59,7 +49,7 @@
 
                             <div class="col-xs-6">
 
-                                <h4 type="text" id="first_name">Nombres</h4>
+                                <h4 class="text-white">Nombres</h4>
                                 <label>@Model.Nombres</label>
                             </div>
                         </div>
@@ -67,7 +57,7 @@
 
                             <div class="col-xs-6">
 
-                                <h4 type="text" id="first_name">Apellidos</h4>
+                                <h4 class="text-white">Apellidos</h4>
                                 <label>@Model.Apellidos</label>
                             </div>
                         </div>
@@ -75,271 +65,258 @@
                         <div class="form-group">
 
                             <div class="col-xs-6">
-                                <h4 type="text" id="first_name">Telefono</h4>
+                                <h4 class="text-white">Telefono</h4>
                                 <label>@Model.Telefono</label>
+
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-xs-6">
-                                <label for="mobile"><h4>Mobile</h4></label>
-                                <input type="text" class="form-control" name="mobile" id="mobile" placeholder="enter mobile number" title="enter your mobile number if any.">
+                                <h4 class="text-white">Fecha de nacimiento</h4>
+                                <label>@Model.Fechanacim</label>
                             </div>
                         </div>
                         <div class="form-group">
 
                             <div class="col-xs-6">
-                                <label for="email"><h4>Email</h4></label>
-                                <input type="email" class="form-control" name="email" id="email" placeholder="you@email.com" title="enter your email.">
+                                <h4 class="text-white">Mi descripción</h4>
+                                <label>@Model.Descrpperfil</label>
                             </div>
                         </div>
-                        <div class="form-group">
 
-                            <div class="col-xs-6">
-                                <label for="email"><h4>Location</h4></label>
-                                <input type="email" class="form-control" id="location" placeholder="somewhere" title="enter a location">
-                            </div>
-                        </div>
-                        <div class="form-group">
 
-                            <div class="col-xs-6">
-                                <label for="password"><h4>Password</h4></label>
-                                <input type="password" class="form-control" name="password" id="password" placeholder="password" title="enter your password.">
-                            </div>
-                        </div>
-                        <div class="form-group">
 
-                            <div class="col-xs-6">
-                                <label for="password2"><h4>Verify</h4></label>
-                                <input type="password" class="form-control" name="password2" id="password2" placeholder="password2" title="enter your password2.">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-xs-12">
-                                <br>
-                                <button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
-                                <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>
-                            </div>
-                        </div>
+
                     </form>
 
                     <hr>
+
+
 
                 </div><!--/tab-pane-->
-                <div class="tab-pane" id="messages">
 
-                    <h2></h2>
-
-                    <hr>
-                    <form class="form" action="##" method="post" id="registrationForm">
-                        <div class="form-group">
-
-                            <div class="col-xs-6">
-                                <label for="first_name"><h4>First name</h4></label>
-                                <input type="text" class="form-control" name="first_name" id="first_name" placeholder="first name" title="enter your first name if any.">
-                            </div>
-                        </div>
-                        <div class="form-group">
-
-                            <div class="col-xs-6">
-                                <label for="last_name"><h4>Last name</h4></label>
-                                <input type="text" class="form-control" name="last_name" id="last_name" placeholder="last name" title="enter your last name if any.">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-
-                            <div class="col-xs-6">
-                                <label for="phone"><h4>Phone</h4></label>
-                                <input type="text" class="form-control" name="phone" id="phone" placeholder="enter phone" title="enter your phone number if any.">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-xs-6">
-                                <label for="mobile"><h4>Mobile</h4></label>
-                                <input type="text" class="form-control" name="mobile" id="mobile" placeholder="enter mobile number" title="enter your mobile number if any.">
-                            </div>
-                        </div>
-                        <div class="form-group">
-
-                            <div class="col-xs-6">
-                                <label for="email"><h4>Email</h4></label>
-                                <input type="email" class="form-control" name="email" id="email" placeholder="you@email.com" title="enter your email.">
-                            </div>
-                        </div>
-                        <div class="form-group">
-
-                            <div class="col-xs-6">
-                                <label for="email"><h4>Location</h4></label>
-                                <input type="email" class="form-control" id="location" placeholder="somewhere" title="enter a location">
-                            </div>
-                        </div>
-                        <div class="form-group">
-
-                            <div class="col-xs-6">
-                                <label for="password"><h4>Password</h4></label>
-                                <input type="password" class="form-control" name="password" id="password" placeholder="password" title="enter your password.">
-                            </div>
-                        </div>
-                        <div class="form-group">
-
-                            <div class="col-xs-6">
-                                <label for="password2"><h4>Verify</h4></label>
-                                <input type="password" class="form-control" name="password2" id="password2" placeholder="password2" title="enter your password2.">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-xs-12">
-                                <br>
-                                <button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
-                                <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>
-                            </div>
-                        </div>
-                    </form>
-
-                </div><!--/tab-pane-->
-                <div class="tab-pane" id="settings">
-
-
-                    <hr>
-                    <form class="form" action="##" method="post" id="registrationForm">
-                        <div class="form-group">
-
-                            <div class="col-xs-6">
-                                <label for="first_name"><h4>First name</h4></label>
-                                <input type="text" class="form-control" name="first_name" id="first_name" placeholder="first name" title="enter your first name if any.">
-                            </div>
-                        </div>
-                        <div class="form-group">
-
-                            <div class="col-xs-6">
-                                <label for="last_name"><h4>Last name</h4></label>
-                                <input type="text" class="form-control" name="last_name" id="last_name" placeholder="last name" title="enter your last name if any.">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-
-                            <div class="col-xs-6">
-                                <label for="phone"><h4>Phone</h4></label>
-                                <input type="text" class="form-control" name="phone" id="phone" placeholder="enter phone" title="enter your phone number if any.">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-xs-6">
-                                <label for="mobile"><h4>Mobile</h4></label>
-                                <input type="text" class="form-control" name="mobile" id="mobile" placeholder="enter mobile number" title="enter your mobile number if any.">
-                            </div>
-                        </div>
-                        <div class="form-group">
-
-                            <div class="col-xs-6">
-                                <label for="email"><h4>Email</h4></label>
-                                <input type="email" class="form-control" name="email" id="email" placeholder="you@email.com" title="enter your email.">
-                            </div>
-                        </div>
-                        <div class="form-group">
-
-                            <div class="col-xs-6">
-                                <label for="email"><h4>Location</h4></label>
-                                <input type="email" class="form-control" id="location" placeholder="somewhere" title="enter a location">
-                            </div>
-                        </div>
-                        <div class="form-group">
-
-                            <div class="col-xs-6">
-                                <label for="password"><h4>Password</h4></label>
-                                <input type="password" class="form-control" name="password" id="password" placeholder="password" title="enter your password.">
-                            </div>
-                        </div>
-                        <div class="form-group">
-
-                            <div class="col-xs-6">
-                                <label for="password2"><h4>Verify</h4></label>
-                                <input type="password" class="form-control" name="password2" id="password2" placeholder="password2" title="enter your password2.">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-xs-12">
-                                <br>
-                                <button class="btn btn-lg btn-success pull-right" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
-                                <!--<button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>-->
-                            </div>
-                        </div>
-                    </form>
-                </div>
 
             </div><!--/tab-pane-->
         </div><!--/tab-content-->
 
     </div><!--/col-9-->
 </div><!--/row-->
+<hr />
+@*MODAL PARA ACTUALIZAR CANDIDATO*@
+@*<div>
+
+
+    <button type="button" class="btn btn-outline-primary" id="btnUpdateCand" data-target="#ModalUpdateCand">
+        ACTUALIZAR DATOS
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
+            <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z" />
+        </svg>
+    </button>*@
+    <!--<div class="modal fade" id="ModalUpdateCand" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>NOMBRE</label>
+                            <input type="text" class="form-control" id="txtNombreCandidato" placeholder="Ingreses sus nombres">
+                        </div>
+                        <div class="col-md-6">
+                            <label>APELLIDOS</label>
+                            <input type="text" class="form-control" id="txtApellidoCandidato" placeholder="Ingreses sus apellidos">
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <label>ESTADO CIVIL</label>
+
+                            <select asp-for="EstadocivilIdestciv" class="form-control" asp-items="ViewBag.EstadocivilIdestciv"></select>
+
+                        </div>
+                    </div>
+                    <div class="row">
 
 
 
 
+                        <div class="col-md-4">
+                            <label>Número de contacto</label>
+                            <input type="text" class="form-control" id="nbtelefono">
+                        </div>
+                        <div class="col-md-4">
+                            <label>Contraseña</label>
+                            <input type="password" class="form-control" id="txtcontraseña" placeholder="Ingreses una nueva contraseña">
+                        </div>
+                        <!-----Add for correo Electronico-->
+                        <!--<div class="col-md-4">
+                            <label>Correo</label>
+                            <input type="email" class="form-control" id="txtcorreo" placeholder="Ingrese su correo">
+                        </div>
+
+                    </div>
+                    <div class="row">
+
+                        <div class="col-md-4">
+
+
+                            <label>Número de dni</label>
+                            <input type="text" class="form-control" id="txtdni">
+                        </div>-->
+
+                        <!--<div class="col-md-4">-->-->
+                        <!--@*<input type="text" class="form-control" id="txtgenero">*@
+                        @*<select id="txtgenero" class="form-control" asp-items="ViewBag.Genero"></select>*@-->
+                        <!--<!--<div class="form-group">
+                            <label class="control-label">Cargar Hoja de vida</label>
+                            <!--<div class="custom-file">-->
+                        <!---->@*<input  class="custom-file-input" type="file" id="txtHojadevida" multiple />*@-->
+                        <!--<input type="file" id="txtHojadevida" asp-for="cvUrl" name="files" value=" required " />
+                        <label class="custom-file-label" for="customFile">cargar cv</label>
+                         </div>-->
+                        <!--<div class="custom-file">
+                                    <input asp-for="cvUrl" class="custom-file-input" id="txtHojadevida" />
+                                    <label class="custom-file-label" for="customFile">choose file</label>
+                                </div>
 
 
 
+                            </div>
+
+                            <div class="col-md-4">
+
+                                <div class="custom-file">
+                                    <input asp-for="fotoArchivo" class="custom-file-input" id="txtfoto" />
+                                    <label class="custom-file-label" for="customFile">choose file</label>
+                                </div>
+
+                            </div>
 
 
 
+                        </div>-->
+                    <!--</div>
 
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" id="btnUpdateCand">Agregar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>-->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+@*<input type="hidden" id="hidIDCandidato" value="-1" />
 
 <script>
-    $("#btnGuardarIdioma").click(function () {
-        let vIDIdiomaC = $("#hidIDIdioma").val();
-        let vIdioma = $("#IdiomaId").val();
-        let vNivOral = $("#NiveloralidiId").val();
-        let vNivEscr = $("#NivescridId").val();
+
+
+    $("#btnUpdateCand").click(function () {
+
+        $("#hidIDCandidato").val(vIDCandidato);
+        let modalUpdateCand = $("ModalUpdateCand");
+
+        $.ajax({
+            type: "GET",
+            url: "Obtener",
+            cache: false,
+            data: { idCandidato: vIdCandidato },
+            success: function (objCandidato) {
+                $("#txtNombreCandidato").val(objCandidato.nombre);
+                $("#txtApellidoCandidato").val(objCandidato.apellido);
+                $("#EstadocivilIdestciv").val(objCandidato.estadociv);
+                $("#nbtelefono").val(objCandidato.telef);
+                $("#txtcontraseña").val(objCandidato.contra);
+                //$("#txtcorreo").val(objCandidato.correo);
+                //$("#txtdni").val(objCandidato.dni);
+                modalUpdateCand.modal();
+                /*modalUpdateCand.find("#titulo".html("Editar Candidato"));*/
+            }
+        });
+
+    });
+
+    $("#btnUpdateCand").click(function () {
+        $("#ModalUpdateCand").modal();
+    });
+
+    $("#crearCandidatoForm").click(function () {
+        let vIDCandidato = $("#hidIDCandidato").val();
+        let vNombres = $("#txtNombreCandidato").val();
+        let vApellidos = $("#txtApellidoCandidato").val();
+        let vfechanacim = $("#dateFechNacimCandidato").val();
+
+        let vEstadoCivil = $("#EstadocivilIdestciv").val();
+        //FALTA AGREGAR NUMERO DE DNI EN LA BD
+        //let vNumeroDoc = $("#nbDocumento").val();
+        let vTelefono = $("#nbtelefono").val();
+
+        //FALTA RELACIONAR EL PAIS COMO LLAVE FORANEA
+        //let vPais = $("#txtpais").val();
+        let vGenero = $("#GeneroIdgenero").val();
+        let vDescripcion = $("#txtdescrpCand").val();
+        let vContraseña = $("#txtcontraseña").val();
+
+
         $.ajax({
             type: "POST",
-            url: "Idiomacandid/NewIdioma",
+            url: "NewCandidato",
             cache: false,
             data: {
-                id: vIDIdiomaC,
-                idioma: vIdioma,
-                NivOral: vNivOral,
-                NivEscr: vNivEscr
+                id: vIDCandidato,
+                nombre: vNombres,
+                apellido: vApellidos,
+                fechanac: vfechanacim,
+                estadociv: vEstadoCivil,
+                telef: vTelefono,
+                genero: vGenero,
+                descrp: vDescripcion,
+                contra: vContraseña
+
+
             },
             success: function (exito) {
                 if (exito) {
                     alert("Se registró correctamente")
+
+
                 } else {
                     alert("Ocurrió un error en la transacción")
                 }
             }
         });
+
     });
-</script>
+</script>*@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

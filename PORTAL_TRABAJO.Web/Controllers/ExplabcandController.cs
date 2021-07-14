@@ -19,7 +19,7 @@ namespace PORTAL_TRABAJO.Web.Controllers
         {
             _context = context;
         }
-        public IActionResult Index()
+        public IActionResult IndexExpLaboral()
         {
             ViewData["AreatrabajoId"] = new SelectList(_context.Areatrabajo, "Id", "Descripcion");
             ViewData["CandidatoIdcandidat"] = new SelectList(_context.Candidato, "Idcandidat", "Idcandidat");
@@ -43,7 +43,7 @@ namespace PORTAL_TRABAJO.Web.Controllers
             return PartialView(await miedxperiencia.ToListAsync());
         }
         [HttpPost]
-        public async Task<IActionResult> Index(int id,
+        public async Task<IActionResult> IndexExpLaboral(int id,
            string NombreEmprEx, string Cargo,
            DateTime Inicio, DateTime Fin, string FuncionD, int Giro, int Area)
         {

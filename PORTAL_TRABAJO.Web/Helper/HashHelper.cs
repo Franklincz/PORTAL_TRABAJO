@@ -12,14 +12,14 @@ namespace PORTAL_TRABAJO.Web.Helper
     {
         public static HashedPassword Hash(string password)
         {
-            byte[] salt = new byte[128 / 8];
+            byte[] salt = new byte[128 / 8]; //salt28 byts
             using (var rng = RandomNumberGenerator.Create())
             {
                 rng.GetBytes(salt);
             }
 
-            // derive a 256-bit subkey (use HMACSHA1 with 10,000 iterations)
-            string hashed = Convert.ToBase64String(KeyDerivation.Pbkdf2(
+            // derive a 256-bit subkey (use HMACSHA1 with 10,000 iterations)//sha 256 
+            string hashed = Convert.ToBase64String(KeyDerivation.Pbkdf2(//libreria de encriptacoin
                 password: password,
                 salt: salt,
                 prf: KeyDerivationPrf.HMACSHA256,

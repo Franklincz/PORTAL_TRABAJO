@@ -1,4 +1,10 @@
-﻿<h1>Datos de Contacto</h1>
+﻿
+
+
+
+
+
+<h1>Datos de Contacto</h1>
 <form>
     <div class="form-group">
         <label for="postulanteCelular">Número de celular</label>
@@ -13,5 +19,67 @@
         <label for="postulanteExp">Describa su experiencia</label>
         <textarea class="form-control" id="postulanteExp" rows="3"></textarea>
     </div>
-    <button type="submit" class="btn btn-primary">Postular</button>
+    @*<button type="submit"  id="btnPostular" class="btn btn-primary">Postular</button>*@
+
 </form>
+<button type="button" id="btnPostular" class="btn btn-primary">POstular </button>
+
+
+
+<input type="hidden" id="hidIDPostulacion" value="-1" />
+<input type="hidden" id="idoferta" value="@ViewData["IdOferta"]" />
+
+<script>
+
+
+
+
+    $("#btnPostular").click(function () {
+
+
+
+        let vIDPostulante = $("#hidIDPostulacion").val();
+        let vCelularPostulante = $("#postulanteCelular").val();
+        let vPostulanteEmail = $("#postulanteEmail").val();
+
+
+
+        let vExperiencia = $("#postulanteExp").val();
+        let idOferta = $("#idoferta").val();
+
+
+
+
+
+        $.ajax({
+            type: "POST",
+            url: "@Url.Action("Grabar", "DetPostuof")",
+            cache: false,
+            data: {
+                idPostulante: vIDPostulante,
+               Celular: vCelularPostulante,
+                Email: vPostulanteEmail,
+
+                Experiencia: vExperiencia,
+                IdOferta: idOferta,
+
+
+
+            },
+            success: function (exito) {
+                if (exito) {
+                    alert("Se registró correctamente");
+
+                   /* CargarListaFormCandid();*/
+                  /*  $("#ModelFormacion").modal("toggle");*/
+
+
+                } else {
+                    alert("Ocurrió un error en la transacción")
+                }
+            }
+        });
+
+    });
+
+</script>
